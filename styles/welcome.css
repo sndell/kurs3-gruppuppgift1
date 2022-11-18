@@ -19,7 +19,6 @@ main {
   align-items: flex-end;
   border-radius: 8px;
   color: rgb(0, 0, 0);
-  padding: 8px;
 }
 
 .tutorial-header__title {
