@@ -19,24 +19,80 @@
     <main>
       <aside class="sidebar">
         <div class="sidebar-header">
-          <i class="fa-solid fa-bars sidebar-header__menu"></i>
-          <h1 class="sidebar-header__title">Quire</h1>
+          <i
+            class="fa-solid fa-bars sidebar-header__menu"
+            onclick="toggleSidebar()"
+          ></i>
+          <h1 class="sidebar-header__title sidebar-text">Quire</h1>
         </div>
+        <hr />
         <nav>
           <ul class="sidebar-list">
             <li>
-              <a href="" class="sidebar-list-item sidebar-active">Notes</a>
+              <a href="" class="sidebar-list-item sidebar-active"
+                ><i class="fa-solid fa-note-sticky"></i>
+                <span class="sidebar-text">Notes</span></a
+              >
             </li>
             <li>
-              <a href="" class="sidebar-list-item">Statistics</a>
+              <a href="" class="sidebar-list-item"
+                ><i class="fa-solid fa-flask"></i
+                ><span class="sidebar-text">Stats</span></a
+              >
             </li>
             <li>
-              <a href="" class="sidebar-list-item">Settings</a>
+              <a href="" class="sidebar-list-item"
+                ><i class="fa-solid fa-gear"></i
+                ><span class="sidebar-text">Settings</span></a
+              >
             </li>
           </ul>
         </nav>
       </aside>
+      <aside class="notes">
+        <div class="notes-header">
+          <input
+            type="text"
+            name="notes-search"
+            class="notes-header__search"
+            placeholder="Search for note"
+          />
+          <div class="notes-tags">
+            <!--Kommer läsas in från localstorage-->
+            <div class="notes-tag">#bra tag</div>
+            <div class="notes-tag">#tag</div>
+            <div class="notes-tag">#hejsan</div>
+            <div class="notes-tag">#bruh</div>
+          </div>
+          <div class="notes-list">
+            <!--Kommer läsas in från localstorage-->
+            <div class="note">
+              <div class="note-header">
+                <h1 class="note__title">Very note</h1>
+                <div class="note-actions">
+                  <i class="fa-solid fa-pen"></i>
+                  <i class="fa-solid fa-trash"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+              <p class="note__preview">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Voluptas quo, quas neque asperiores laborum aut. Lorem ipsum
+                dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor
+                sit amet consectetur, adipisicing elit.
+              </p>
+              <div class="note-tags">
+                <div class="notes-tag notes-tag-dark">#bra tag</div>
+                <div class="notes-tag notes-tag-dark">#tag</div>
+                <div class="notes-tag notes-tag-dark">#hejsan</div>
+                <div class="notes-tag notes-tag-dark">#bruh</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
     </main>
+    <script src="../javascript/sidebar.js"></script>
     <script src="../javascript/first-time-visitor.js"></script>
   </body>
 </html>
