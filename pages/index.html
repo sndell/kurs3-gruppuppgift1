@@ -51,6 +51,7 @@
       </aside>
       <aside class="notes">
         <div class="notes-header">
+          <button onclick="newNote()">Ny note</button>
           <input
             type="text"
             name="notes-search"
@@ -64,34 +65,13 @@
             <div class="notes-tag">#hejsan</div>
             <div class="notes-tag">#bruh</div>
           </div>
-          <div class="notes-list">
-            <!--Kommer läsas in från localstorage-->
-            <div class="note">
-              <div class="note-header">
-                <h1 class="note__title">Very note</h1>
-                <div class="note-actions">
-                  <i class="fa-solid fa-pen"></i>
-                  <i class="fa-solid fa-trash"></i>
-                  <i class="fa-solid fa-star"></i>
-                </div>
-              </div>
-              <p class="note__preview">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Voluptas quo, quas neque asperiores laborum aut. Lorem ipsum
-                dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor
-                sit amet consectetur, adipisicing elit.
-              </p>
-              <div class="note-tags">
-                <div class="notes-tag notes-tag-dark">#bra tag</div>
-                <div class="notes-tag notes-tag-dark">#tag</div>
-                <div class="notes-tag notes-tag-dark">#hejsan</div>
-                <div class="notes-tag notes-tag-dark">#bruh</div>
-              </div>
-            </div>
-          </div>
+        </div>
+        <div class="notes-list">
+          <!--Generates from localstorage in sidebar.js-->
         </div>
       </aside>
     </main>
+    <script src="../javascript/notes.js"></script>
     <script src="../javascript/sidebar.js"></script>
     <script src="../javascript/first-time-visitor.js"></script>
   </body>
