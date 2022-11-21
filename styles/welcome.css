@@ -1,5 +1,6 @@
 body {
-  background: linear-gradient(135deg, #7fffff 0%, #f675ff 100%);
+  /* background: linear-gradient(135deg, #7fffff 0%, #f675ff 100%); */
+  background-color: black;
   display: grid;
   place-items: center;
 }
@@ -12,13 +13,13 @@ main {
 }
 
 .tutorial-header {
-  color: white;
   grid-column: 2/3;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   border-radius: 8px;
-  color: rgb(0, 0, 0);
+  /* color: rgb(0, 0, 0); */
+  color: white;
 }
 
 .tutorial-header__title {
@@ -59,5 +60,7 @@ main {
 }
 
 .tutorial-content-navigation__continue {
-  background-color: #7fffff;
+  /* background-color: #7fffff; */
+  background-color: black;
+  color: white;
 }
