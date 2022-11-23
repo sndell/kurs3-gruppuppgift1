@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../styles/global.css" />
-    <link rel="stylesheet" href="../styles/settings.css" />
     <link rel="stylesheet" href="../styles/sidebar.css" />
+    <link rel="stylesheet" href="../styles/settings.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
@@ -53,21 +53,18 @@
         </section>
         <section class="settings">
           <h1>Settings</h1>
+
+          <h2>DarkMode Switch</h2>
+          <div class="dmSwitch">
+            <input type="checkbox" class="checkbox" id="checkb"/>
+            <label class="label" for="checkb">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+            <div class="circle"></div>
+          </label>
+          </div>
+
           <h2>Font</h2>
-          <!-- <div class="header1">
-            <a>Combined adjustments:</a>
-          </div>
-          <div class="setting1">
-            <a>Font settings: </a>
-            <input
-            type="text"
-            placeholder="italic 22px Agency FB"
-            id="font-settings"/>
-            <button class="changeFontBtn" onclick="changeFont()">Change</button>
-          </div>
-          <div class="header2">
-            <a>Specific adjustments:</a>
-          </div> -->
           <div class="setting2">
             <a>Font size: </a>
             <input
@@ -75,6 +72,7 @@
             placeholder="150%"
             id="font-size"/>
             <button class="changeBtn" onclick="changeFontSize()">Change</button>
+            <button class="resetSize" onclick="resetFontSize()">Reset</button>
           </div>
           <div class="setting3">
             <a>Font family: </a>
@@ -83,6 +81,7 @@
             placeholder="Agency FB"
             id="font-family"/>
             <button class="changeBtn" onclick="changeFontFamily()">Change</button>
+            <button class="resetFamily" onclick="resetFontFamily()">Reset</button>
           </div>
           <div class="setting4">
             <a>Font weight: </a>
@@ -91,6 +90,7 @@
             placeholder="italic"
             id="font-weight"/>
             <button class="changeBtn" onclick="changeFontWeight()">Change</button>
+            <button class="resetWeight" onclick="resetFontWeight()">Reset</button>
           </div>
           <div class="setting5">
             <a>Font color: </a>
@@ -99,7 +99,9 @@
             placeholder="white"
             id="font-color"/>
             <button class="changeBtn" onclick="changeFontColor()">Change</button>
+            <button class="resetColor" onclick="resetFontColor()">Reset</button>
           </div>
+
           <h2>Background</h2>
           <div class="setting6">
             <a>Background color: </a>
@@ -108,6 +110,7 @@
             placeholder="black or #000000"
             id="background-color"/>
             <button class="changeBtn" onclick="changeBackgroundColor()">Change</button>
+            <button class="resetBackground" onclick="resetBgColor()">Reset</button>
           </div>
           <div class="resetSettings">
             <button class="resetBtn" onclick="resetSettings()">Reset changes</button>

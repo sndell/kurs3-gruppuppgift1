@@ -2,6 +2,34 @@ body {
   display: flex;
 }
 
+/* Quite messy darkmode */
+body.dark {
+	background: #1d1d1d;
+}
+
+body.dark > * {
+  color: black;
+}
+
+body.dark .sidebar {
+  color: white;
+  background-color: #1d1d1d;
+}
+
+body.dark .sidebar li > * {
+  color: white;
+}
+
+body.dark .preview {
+  background: #1d1d1d;
+}
+
+body.dark .preview > * {
+  color: white;
+}
+/* end */
+
+
 main {
   width: 100vw;
   display: grid;
@@ -35,7 +63,6 @@ main {
   background-color: white;
   padding: 4px 8px;
   border-radius: 4px;
-  font-size: 32px;
 }
 
 .notes-tag-dark {
