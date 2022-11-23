@@ -115,11 +115,6 @@ function resetSettings() {
 
 /* DARKMODE SWITCH */
 
-/* const checkb = document.getElementById('checkb');
-
-checkb.addEventListener('change', () => {
-	document.body.classList.toggle('dark');
-}); */
 
 
 const checkb = document.getElementById('checkb');
