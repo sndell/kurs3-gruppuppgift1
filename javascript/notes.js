@@ -18,7 +18,7 @@ const selectNote = (id = undefined) => {
       <div class="preview-header">
       <h1>${note.title}</h1>
       <div class="preview-header-actions">
-        <i class="fa-solid fa-pen"></i>
+        <i class="fa-solid fa-pen" onclick='editNote(${note.id})'></i>
         <i class="fa-solid fa-trash" onclick='deleteNote(${note.id})'></i>
         <i class="fa-regular fa-star"></i>
         <i class="fa-solid fa-print"></i>
@@ -66,6 +66,10 @@ const deleteNote = (id) => {
 
   generateNoteList();
   selectNote();
+};
+
+const editNote = (id) => {
+  window.location.href = `../pages/edit/?id=${id}`;
 };
 
 const generateNoteList = () => {

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../styles/global.css" />
+    <link rel="stylesheet" href="edit.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-editor-actions">
+        <div class="bold header-editor-actions__action" onclick="handleBold()">
+          B
+        </div>
+        <div class="italic header-editor-actions__action">I</div>
+        <div class="heading header-editor-actions__action">
+          H<i class="fa-solid fa-caret-down"></i>
+        </div>
+      </div>
+      <div class="header-title-container">
+        <h1 class="header__title" contenteditable="true">New note</h1>
+      </div>
+      <div class="header-close">
+        <a href="../../pages/" class="header-close__button"
+          >Close editor<i class="fa-solid fa-xmark"></i
+        ></a>
+      </div>
+    </header>
+    <hr />
+    <main class="editor">
+      <textarea
+        name=""
+        class="editor-textarea"
+        oninput="handleText(this.value)"
+      ></textarea>
+      <div class="editor-text"></div>
+    </main>
+    <script src="edit.js"></script>
+  </body>
+</html>

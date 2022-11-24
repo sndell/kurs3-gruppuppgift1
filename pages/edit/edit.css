@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+body {
+  width: 100vw;
+  height: 100vh;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+hr {
+  margin: 16px 0;
+  border: none;
+  height: 1px;
+  background-color: black;
+}
+
+.header {
+  height: 32px;
+  display: grid;
+  grid-template-columns: 1fr max-content 1fr;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-title-container {
+  display: flex;
+}
+
+.header__title {
+  font-size: 24px;
+  padding: 4px;
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-radius: 4px;
+  outline: none;
+}
+
+.header__title:hover {
+  border: 1px solid rgba(135, 135, 135, 0.387);
+}
+
+.header-editor-actions {
+  border-radius: 4px;
+  display: flex;
+  gap: 8px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 24px;
+}
+
+.header-close {
+  display: flex;
+  justify-content: end;
+}
+
+.header-close__button {
+  width: fit-content;
+  transition: font-weight 0.15s;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: black;
+}
+
+.header-close__button:hover {
+  font-weight: bold;
+}
+
+.header-close__button i {
+  font-size: 24px;
+}
+
+.header-editor-actions__action {
+  padding: 0 4px;
+}
+
+.header-editor-actions__action:hover {
+  background-color: rgba(93, 93, 105, 0.184);
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.heading i {
+  font-size: 16px;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.editor {
+  display: grid;
+  /* grid-template-columns: minmax(auto, 800px); */
+  /* justify-content: center; */
+  height: 100%;
+}
+
+.editor-textarea {
+  /* opacity: 0; */
+}
+
+.editor-text {
+}
+
+.line {
+  width: 100%;
+}
