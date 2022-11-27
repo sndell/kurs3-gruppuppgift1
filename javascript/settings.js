@@ -119,9 +119,7 @@ function resetSettings() {
 
 const checkb = document.getElementById('checkb');
 
-/* darkMode = false; */
 darkMode = darkModeStateSaved;
-/* log(darkMode); */
 
 checkb.addEventListener('click', () => {
 	document.body.classList.toggle('dark');
