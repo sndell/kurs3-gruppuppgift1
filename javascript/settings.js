@@ -27,10 +27,9 @@ window.addEventListener("load", () => {
     body.style.setProperty('background-color', BackgroundColorSaved);
 
     if (darkModeStateSaved == true) {
+        checkb.checked = true;
         document.body.classList.toggle('dark');
-    } /* else if (darkModeStateSaved == false) {
-        
-    } */
+    }
 })
 
 function changeFontSize() {
@@ -105,6 +104,7 @@ function resetBgColor() {
 
 function resetSettings() {
     let itemsToRemove = ["font-size", "font-family", "font-weight", "font-color", "background-color"];
+    /* let itemsToRemove = ["font-size", "font-family", "font-weight", "font-color", "background-color", "darkModeState"]; */
 
     for (item of itemsToRemove) {
         localStorage.removeItem(item);
@@ -115,11 +115,33 @@ function resetSettings() {
 
 /* DARKMODE SWITCH */
 
+/* This solution works terribly */
 
+/* function changeDmode() {
+    const checkb = document.getElementById("checkb");
+    darkMode = darkModeStateSaved;
 
-const checkb = document.getElementById('checkb');
+    if (checkb.checked) {
+        document.body.classList.toggle("dark");
+        darkMode = true;
+        log("checked");
+    } else {
+        document.body.classList.toggle("dark");
+        darkMode = false;
+        log("not checked");
+    }
+    localStorage.setItem('darkModeState', JSON.stringify(darkMode));
+} */
+
+/* const checkb = document.getElementById('checkb'); */
+let checkb = document.getElementById('checkb');
 
 darkMode = darkModeStateSaved;
+
+if (darkMode == null) {
+    darkMode = false;
+    log(darkMode);
+}
 
 checkb.addEventListener('click', () => {
 	document.body.classList.toggle('dark');
