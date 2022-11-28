@@ -128,3 +128,93 @@ body.dark .sidebar {
 /* .settings {
     color: black;
 } */
+
+
+
+
+/* MODAL CSS */
+
+/* .contactModal > *{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+} */
+.btnModal{
+    background-color: #272727;
+    color: white;
+    border: none;
+    margin-left: 1rem;
+    font-size: 24px;
+    padding: .8em 2em;
+}
+.btnModal:hover{
+    background-color: #5a5a5a;
+}
+.modal{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4)
+}
+.modal-content{
+    background-color: #272727;
+    margin: 25% 25%;
+    padding: 2em;
+    width: 50%;
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.3), 0 7px 20px 0 rgba(0,0,0,0.17);
+    animation-name: openmodal;
+    animation-duration: .6s;
+    text-align: center;
+}
+/* .modal-content a{
+    color: blue;
+} */
+/* .modal-content a:hover{
+    color: green;
+} */
+.closeBtn{
+    color: black;
+    float:right;
+    margin: -40px -30px 0 0;
+    font-size: 33px;
+}
+.closeBtn:hover, .closeBtn:focus{
+    cursor:pointer;
+    color: red;
+}
+@keyframes openmodal{
+    from{opacity: 0}
+    to{opacity: 1}
+}
+
+
+.modalSettingsCollection {
+	display: flex;
+	flex-direction: column;
+	padding: 2rem 0 0 0;
+}
+
+.modalSettingsCollection > * {
+	padding: 0 0 2rem 0;
+}
+
+.modalSettingsCollection > div {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.modalSettingsCollection > div input {
+	margin-left: 1rem;
+}
+
+.savedThemes{
+	width: calc(200px + 100px);
+	display: flex;
+	flex-direction: column;
+}

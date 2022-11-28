@@ -15,7 +15,6 @@ log(BackgroundColorSaved);
 const darkModeStateSaved = JSON.parse(localStorage.getItem('darkModeState'));
 log("darkMode = " + darkModeStateSaved);
 
-
 window.addEventListener("load", () => {
     let body = document.body;
     body.style.setProperty('font-size', sizeSaved);
@@ -103,8 +102,8 @@ function resetBgColor() {
 
 
 function resetSettings() {
-    let itemsToRemove = ["font-size", "font-family", "font-weight", "font-color", "background-color"];
-    /* let itemsToRemove = ["font-size", "font-family", "font-weight", "font-color", "background-color", "darkModeState"]; */
+    /* let itemsToRemove = ["font-size", "font-family", "font-weight", "font-color", "background-color"]; */
+    let itemsToRemove = ["font-size", "font-family", "font-weight", "font-color", "background-color", "darkModeState", "themeIDSaved", "themesArray"];
 
     for (item of itemsToRemove) {
         localStorage.removeItem(item);
@@ -154,3 +153,174 @@ checkb.addEventListener('click', () => {
 
     localStorage.setItem('darkModeState', JSON.stringify(darkMode));
 });
+
+/* CUSTOM THEME MODAL */
+
+/* Getting modal, close button & button */
+var modal = document.getElementById("websiteModal");
+var modalBtn = document.getElementById("modalBtn");
+var closeBtn = document.getElementsByClassName("closeBtn")[0];
+
+modalBtn.addEventListener("click", openModal);
+closeBtn.addEventListener("click", closeModal);
+
+window.addEventListener("click", clickOutside);
+
+function openModal(){
+    modal.style.display = "block";
+}
+
+function closeModal(){
+    modal.style.display = "none";
+}
+
+function clickOutside(e){
+    if(e.target == modal){
+        modal.style.display = "none";
+    }
+}
+
+function submitTheme() {
+
+    /* Get selected choices */
+    var themeName  = document.getElementById("modal-themeName").value;
+    var themeFontS  = document.getElementById("modal-fontS").value;
+    var themeFontF  = document.getElementById("modal-fontF").value;
+    var themeFontW  = document.getElementById("modal-fontW").value;
+    var themeFontC  = document.getElementById("modal-fontC").value;
+    var themeBackC  = document.getElementById("modal-backgroundC").value;
+
+    /* This code should be buildable upon */
+
+    const themeIDSaved = JSON.parse(localStorage.getItem('themeIDSaved'));
+    log("previous id was " + themeIDSaved);
+
+    var themeID = 0;
+
+    if (themeIDSaved != null) {
+        themeID = themeIDSaved + 1;
+        log("selected id: " + themeID);
+        localStorage.setItem('themeIDSaved', JSON.stringify(themeID));
+    } else {
+        themeID = themeID + 1;
+        log("selected id: " + themeID);
+        localStorage.setItem('themeIDSaved', JSON.stringify(themeID));
+    }
+
+    /* For JSON format */
+
+
+    /* themeJSON = themeID
+
+    themeJSON = { */
+        /* id: themeID, */
+        /* fontsize: themeFontS,
+        fontfamily: themeFontF,
+        fontweight: themeFontW,
+        fontcolor: themeFontC,
+        backgroundcolor: themeBackC,
+    } */
+
+    /* themeNameJSON = {
+        id: themeID,
+        type: "name",
+        value: themeName,
+    }
+    themeFontSJSON = {
+        id: themeID,
+        type: "font-size",
+        value: themeFontS,
+    }
+    themeFontFJSON = {
+        id: themeID,
+        type: "font-family",
+        value: themeFontF,
+    }
+    themeFontWJSON = {
+        id: themeID,
+        type: "font-weight",
+        value: themeFontW,
+    }
+    themeFontCJSON = {
+        id: themeID,
+        type: "color",
+        value: themeFontC,
+    }
+    themeBackCJSON = {
+        id: themeID,
+        type: "background-color",
+        value: themeBackC,
+    } */
+
+
+    /* Logging all JSON JS objects */
+
+    /* let itemsToGet = [themeNameJSON, themeFontSJSON, themeFontFJSON, themeFontWJSON, themeFontCJSON, themeBackCJSON];
+
+    for (item of itemsToGet) {
+        log(item);
+    } */
+
+    /* Saving and parsing the JSON JS objects */
+
+    /* localStorage.setItem('themeNameJSON', JSON.stringify(themeNameJSON));
+    localStorage.setItem('themeFontSJSON', JSON.stringify(themeFontSJSON));
+    localStorage.setItem('themeFontFJSON', JSON.stringify(themeFontFJSON));
+    localStorage.setItem('themeFontWJSON', JSON.stringify(themeFontWJSON));
+    localStorage.setItem('themeFontCJSON', JSON.stringify(themeFontCJSON));
+    localStorage.setItem('themeBackCJSON', JSON.stringify(themeBackCJSON)); */
+
+
+    /* This is just for represenation, these should be grouped together if possible and parsed at window load */
+
+    /* Code below commented out for now */
+
+    /* const themeNameSaved = JSON.parse(localStorage.getItem('themeNameJSON'));
+    const themeFontSSaved = JSON.parse(localStorage.getItem('themeFontSJSON'));
+    const themeFontFSaved = JSON.parse(localStorage.getItem('themeFontFJSON'));
+    const themeFontWSaved = JSON.parse(localStorage.getItem('themeFontWJSON'));
+    const themeFontCSaved = JSON.parse(localStorage.getItem('themeFontCJSON'));
+    const themeBackCSaved = JSON.parse(localStorage.getItem('themeBackCJSON')); */
+
+    /* Logging all saved JSON JS objects after parse */
+
+    /* let savedThemesToGet = [themeNameSaved, themeFontSSaved, themeFontFSaved, themeFontWSaved, themeFontCSaved, themeBackCSaved];
+
+    log("summary of saved data after JSON parse: ");
+
+    for (saves of savedThemesToGet) {
+        log(saves);
+    } */
+
+
+
+    /* EXPERIMENTING */
+
+    let themesJSON = [];
+
+    let themeJSON = {
+    fontsize: themeFontS,
+    fontfamily: themeFontF,
+    fontweight: themeFontW,
+    fontcolor: themeFontC,
+    backgroundcolor: themeBackC,
+    }
+
+    themesJSON.push(themeJSON);
+
+    localStorage.setItem("themesArray", JSON.stringify(themesJSON));
+
+    log(themesJSON);
+
+
+
+
+
+
+
+
+
+}
+
+const themesArraySaved = JSON.parse(localStorage.getItem('themesArray'));
+log(themesArraySaved);
