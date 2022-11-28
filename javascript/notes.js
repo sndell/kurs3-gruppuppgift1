@@ -15,10 +15,10 @@ const selectNote = (id = undefined) => {
     );
 
     previewDiv.innerHTML = `
-      <div class="preview-header">
+    <div class="preview-header">
       <h1>${note.title}</h1>
       <div class="preview-header-actions">
-        <i class="fa-solid fa-pen"></i>
+        <i class="fa-solid fa-pen" onclick='editNote(${note.id})'></i>
         <i class="fa-solid fa-trash" onclick='deleteNote(${note.id})'></i>
         <i class="fa-regular fa-star"></i>
         <i class="fa-solid fa-print"></i>
@@ -30,6 +30,9 @@ const selectNote = (id = undefined) => {
       </div>
     </div>
     <hr />
+    <div class="preview-content">
+      ${note.content.html}
+    </div>
     `;
   } else {
     document.querySelector('.preview').innerHTML = '';
@@ -44,6 +47,10 @@ const newNote = () => {
     id,
     title: 'New note',
     created: id,
+    content: {
+      html: '',
+      markdown: '',
+    },
     modified: id,
     tags: ['tag1', 'tag2'],
     favorite: false,
@@ -66,6 +73,10 @@ const deleteNote = (id) => {
 
   generateNoteList();
   selectNote();
+};
+
+const editNote = (id) => {
+  window.location.href = `../pages/edit/?id=${id}`;
 };
 
 const generateNoteList = () => {
