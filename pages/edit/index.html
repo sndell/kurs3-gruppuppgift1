@@ -21,13 +21,24 @@
         <div class="bold header-editor-actions__action" onclick="handleBold()">
           B
         </div>
-        <div class="italic header-editor-actions__action">I</div>
+        <div
+          class="italic header-editor-actions__action"
+          onclick="handleItalic()"
+        >
+          I
+        </div>
         <div class="heading header-editor-actions__action">
           H<i class="fa-solid fa-caret-down"></i>
         </div>
+        <div class="ul header-editor-actions__action">
+          <i class="fa-solid fa-list-ul"></i>
+        </div>
+        <div class="ol header-editor-actions__action">
+          <i class="fa-solid fa-list-ol"></i>
+        </div>
       </div>
       <div class="header-title-container">
-        <h1 class="header__title" contenteditable="true">New note</h1>
+        <h1 class="header__title" contenteditable>New note</h1>
       </div>
       <div class="header-close">
         <a href="../../pages/" class="header-close__button"
@@ -36,14 +47,12 @@
       </div>
     </header>
     <hr />
-    <main class="editor">
-      <textarea
-        name=""
-        class="editor-textarea"
-        oninput="handleText(this.value)"
-      ></textarea>
-      <div class="editor-text"></div>
-    </main>
+    <div
+      class="editor"
+      contenteditable
+      oninput="handleInput()"
+      onpaste="(e) => e.preventDefault()"
+    ></div>
     <script src="edit.js"></script>
   </body>
 </html>
