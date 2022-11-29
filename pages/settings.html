@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../styles/global.css" />
-    <link rel="stylesheet" href="../styles/settings.css" />
     <link rel="stylesheet" href="../styles/sidebar.css" />
+    <link rel="stylesheet" href="../styles/settings.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
@@ -52,65 +52,130 @@
           </nav>
         </section>
         <section class="settings">
-          <h1>Settings</h1>
+          <h1>General Settings</h1>
+
+          <h2>DarkMode Switch</h2>
+          <div class="dmSwitch">
+            <input type="checkbox" class="checkbox" id="checkb"/>
+            <label class="label" for="checkb">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+            <div class="circle"></div>
+          </label>
+          </div>
+
+          <h1>Customization</h1>
+
+          <button id="modalBtn" class="btnModal">Click here to make a theme preset!</button>
+          <div id="websiteModal" class="modal">
+            <div class="modal-content">
+                <span class="closeBtn">&times;</span>
+                <h2>Customization Environment:</h2>
+                <div class="modalSettingsCollection">
+                  <div class="themeName">
+                    <h3>Theme Name:</h3>
+                    <input type="text" placeholder="awesome theme" id="modal-themeName"/>
+                  </div>
+                  <div class="mdlSetting1">
+                    <a>Font size:</a>
+                    <input type="text" placeholder="150%" id="modal-fontS" />
+                  </div>
+                  <div class="mdlSetting2">
+                    <a>Font family:</a>
+                    <input type="text" placeholder="Agency FB" id="modal-fontF"/>
+                  </div>
+                  <div class="mdlSetting3">
+                    <a>Font weight:</a>
+                    <input type="text" placeholder="bold" id="modal-fontW"/>
+                  </div>
+                  <div class="mdlSetting4">
+                    <a>Font color:</a>
+                    <input type="text" placeholder="white" id="modal-fontC"/>
+                  </div>
+                  <div class="mdlSetting5">
+                    <a>Background color:</a>
+                    <input type="text" placeholder="black or #000000" id="modal-backgroundC"/>
+                  </div>
+                  <div class="submitTheme">
+                    <button class="submitBtn" onclick="submitTheme()">Save this theme!</button>
+                  </div>
+                </div>
+
+
+            </div>
+          </div>
+
+
+          <h2>Saved Theme Presets</h2>
+
+          <div class="savedThemes" id="savedThemes">
+            <p>//saved themes go here//</p>
+            <button class="theme1" id="theme1" onclick="enableTheme()">Theme nr.1</button>
+            <button class="theme2" id="theme2" onclick="enableTheme()">Theme nr.2</button>
+            <button class="theme3" id="theme3" onclick="enableTheme()">Theme nr.3</button>
+          </div>
+
+
+
           <h2>Font</h2>
-          <!-- <div class="header1">
-            <a>Combined adjustments:</a>
-          </div>
+
           <div class="setting1">
-            <a>Font settings: </a>
-            <input
-            type="text"
-            placeholder="italic 22px Agency FB"
-            id="font-settings"/>
-            <button class="changeFontBtn" onclick="changeFont()">Change</button>
-          </div>
-          <div class="header2">
-            <a>Specific adjustments:</a>
-          </div> -->
-          <div class="setting2">
             <a>Font size: </a>
             <input type="text" placeholder="150%" id="font-size" />
             <button class="changeBtn" onclick="changeFontSize()">Change</button>
+            <button class="resetSize" onclick="resetFontSize()">Reset</button>
           </div>
-          <div class="setting3">
+
+          <div class="setting2">
             <a>Font family: </a>
-            <input type="text" placeholder="Agency FB" id="font-family" />
-            <button class="changeBtn" onclick="changeFontFamily()">
-              Change
-            </button>
+            <input
+            type="text"
+            placeholder="Agency FB"
+            id="font-family"/>
+            <button class="changeBtn" onclick="changeFontFamily()">Change</button>
+            <button class="resetFamily" onclick="resetFontFamily()">Reset</button>
           </div>
-          <div class="setting4">
+
+          <div class="setting3">
             <a>Font weight: </a>
-            <input type="text" placeholder="italic" id="font-weight" />
-            <button class="changeBtn" onclick="changeFontWeight()">
-              Change
-            </button>
+            <input
+            type="text"
+            placeholder="italic"
+            id="font-weight"/>
+            <button class="changeBtn" onclick="changeFontWeight()">Change</button>
+            <button class="resetWeight" onclick="resetFontWeight()">Reset</button>
+          </div>
+
+          <h2>Colors (sketchy with DarkMode on...)</h2>
+
+          <div class="setting4">
+            <a>Font color: </a>
+            <input
+            type="text"
+            placeholder="white"
+            id="font-color"/>
+            <button class="changeBtn" onclick="changeFontColor()">Change</button>
+            <button class="resetColor" onclick="resetFontColor()">Reset</button>
           </div>
           <div class="setting5">
-            <a>Font color: </a>
-            <input type="text" placeholder="white" id="font-color" />
-            <button class="changeBtn" onclick="changeFontColor()">
-              Change
-            </button>
-          </div>
-          <h2>Background</h2>
-          <div class="setting6">
             <a>Background color: </a>
             <input
-              type="text"
-              placeholder="black or #000000"
-              id="background-color"
-            />
-            <button class="changeBtn" onclick="changeBackgroundColor()">
-              Change
-            </button>
+            type="text"
+            placeholder="black or #000000"
+            id="background-color"/>
+            <button class="changeBtn" onclick="changeBackgroundColor()">Change</button>
+            <button class="resetBackground" onclick="resetBgColor()">Reset</button>
+
           </div>
           <div class="resetSettings">
-            <button class="resetBtn" onclick="resetSettings()">
-              Reset changes
-            </button>
+            <button class="resetBtn" onclick="resetSettings()">Reset all changes (Clears all JSON on page)</button>
           </div>
+
+
+
+
+
+
         </section>
       </aside>
     </main>
