@@ -12,6 +12,8 @@ let editingTitle = false;
 
 title.innerHTML = note.title;
 
+editor.innerHTML = note.content.html;
+
 const handleBold = () => {
   boldButton.classList.toggle('bold-active');
   document.execCommand('bold', false, null);
