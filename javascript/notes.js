@@ -20,7 +20,11 @@ const selectNote = (id = undefined) => {
       <div class="preview-header-actions">
         <i class="fa-solid fa-pen" onclick='editNote(${note.id})'></i>
         <i class="fa-solid fa-trash" onclick='deleteNote(${note.id})'></i>
-        <i class="fa-regular fa-star"></i>
+        <i ${
+          note.favorite
+            ? 'class="fa-solid fa-star"'
+            : 'class="fa-regular fa-star"'
+        } onclick='toggleFavorite(${note.id})'></i>
         <i class="fa-solid fa-print"></i>
         <i class="fa-solid fa-xmark" onclick='selectNote()'></i>
      </div>
