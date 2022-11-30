@@ -68,3 +68,24 @@ body {
 .hidden {
   display: none;
 }
+
+/* Colors */
+:root {
+  --font-size: 16px;
+  --primary-text-color: black;
+  --secondary-text-color: black;
+  --primary-color: white;
+  --secondary-color: black;
+  --tertiary-color: white;
+  --accent-color: white;
+  --background-color: rgb(114, 114, 114);
+
+/* Darkmode colors */
+  --darkmode-primary-text-color: white;
+  --darkmode-secondary-text-color: white;
+  --darkmode-primary-color: #272727;
+  --darkmode-secondary-color: #424242;
+  --darkmode-tertiary-color: white;
+  --darkmode-accent-color: white;
+  --darkmode-background-color: #1d1d1d;
+}

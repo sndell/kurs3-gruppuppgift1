@@ -4,7 +4,7 @@
 
 body {
   display: flex;
-  background-color: rgb(255, 255, 255);
+  background-color: var(--background-color);
 }
 
 main {
@@ -30,54 +30,47 @@ main > * {
 }
 
 .settings > * {
-    padding: 1.4rem;
+    padding: 1.2rem;
+    color: var(--primary-text-color);
 }
 
-/* DarkMode Switch */
-
-.dmSwitch {
-  /* display: flex;
-	align-items: center;
-	justify-content: center; */
-  /* position: absolute; */
-	margin: 0 0 0 1rem;
-	transition: background 0.2s linear;
+.settings .otherSettings div {
+  display: flex;
+  flex-direction: column;
 }
 
 
+
+
+/* Darkmode Adjustments */
 
 body.dark {
-	background: #1d1d1d;
-}
-
-body.dark > * {
-  color: white;
+	background: var(--darkmode-background-color);
 }
 
 body.dark .sidebar {
-  color: white;
-  background-color: #272727;
+  color: var(--darkmode-primary-text-color);
+  background-color: var(--darkmode-primary-color);
 }
 
 body.dark .sidebar li > * {
-  color: white;
+  color: var(--darkmode-primary-text-color);
 }
 
-
-
-
-/* body.dark {
-	background: #1d1d1d;
+body.dark .settings > * {
+  color: var(--darkmode-primary-text-color);
 }
 
-body.dark > * {
-  color: white;
+body.dark aside .notes {
+  background-color: var(--darkmode-secondary-color);
 }
 
-body.dark .sidebar {
-  color: white;
-  background: #1d1d1d;
-} */
+/* Darkmode Switch */
+
+.dmSwitch {
+	margin: 0 0 0 1rem;
+	transition: background 0.2s linear;
+}
 
 .checkbox {
 	opacity: 0;
@@ -114,7 +107,6 @@ body.dark .sidebar {
 	transform: translateX(32px);
 }
 
-
 .fa-moon {
 	color: #2151aa;
 }
@@ -125,9 +117,29 @@ body.dark .sidebar {
 
 
 
-/* .settings {
-    color: black;
-} */
+/* General settings & design choices */
+
+.colorPickers {
+  display: flex;
+  flex-direction: column;
+}
+
+.colorPickers label {
+  margin: 1.4rem 0 .4rem 0;
+}
+
+.otherSettings {
+  display: flex;
+  flex-direction: column;
+}
+
+.colorPickers input {
+  border: none;
+  background: none;
+  width: 120px;
+  height: 40px;
+}
+
 
 
 
@@ -138,7 +150,7 @@ body.dark .sidebar {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
 } */
-.btnModal{
+/* .btnModal{
     background-color: #272727;
     color: white;
     border: none;
@@ -169,14 +181,14 @@ body.dark .sidebar {
     animation-name: openmodal;
     animation-duration: .6s;
     text-align: center;
-}
+} */
 /* .modal-content a{
     color: blue;
 } */
 /* .modal-content a:hover{
     color: green;
 } */
-.closeBtn{
+/* .closeBtn{
     color: black;
     float:right;
     margin: -40px -30px 0 0;
@@ -217,4 +229,4 @@ body.dark .sidebar {
 	width: calc(200px + 100px);
 	display: flex;
 	flex-direction: column;
-}
+} */
