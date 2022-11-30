@@ -17,7 +17,14 @@ log("darkMode = " + darkModeStateSaved);
 window.addEventListener("load", () => {
     let body = document.body;
 
+    if (darkModeStateSaved == true) {
+        checkb.checked = true;
+        document.body.classList.toggle('dark');
+    }
+
     body.style.setProperty('font-size', fontSizeSaved);
+
+    const r = document.querySelector(':root');
 
     r.style.setProperty('--primary-color', primaryColorSaved);
     r.style.setProperty('--secondary-color', secondaryColorSaved);
@@ -34,11 +41,6 @@ window.addEventListener("load", () => {
     document.getElementById("background").value = backgroundSaved;
     document.getElementById("primaryTextColor").value = primaryTextColorSaved;
     document.getElementById("secondaryTextColor").value = secondaryTextColorSaved;
-
-    if (darkModeStateSaved == true) {
-        checkb.checked = true;
-        document.body.classList.toggle('dark');
-    }
 })
 
 function changeFontSize() {
@@ -65,7 +67,7 @@ darkMode = darkModeStateSaved;
 
 if (darkMode == null) {
     darkMode = false;
-    log(darkMode);
+    localStorage.setItem('darkModeState', JSON.stringify(darkMode));
 }
 
 checkb.addEventListener('click', () => {
