@@ -89,3 +89,40 @@ body {
   --darkmode-accent-color: white;
   --darkmode-background-color: #1d1d1d;
 }
+
+/* Darkmode css for body */
+
+body.dark {
+	background-color: var(--darkmode-background-color);
+}
+
+body.dark .sidebar {
+  color: var(--darkmode-primary-text-color);
+  background-color: var(--darkmode-secondary-color);
+}
+
+body.dark .sidebar li > * {
+  color: var(--darkmode-primary-text-color);
+}
+
+body.dark .settings > * {
+  color: var(--darkmode-primary-text-color);
+}
+
+body.dark .sidebar .sidebar-header {
+  color: var(--darkmode-primary-text-color);
+}
+
+body.dark aside .notes {
+  background-color: var(--darkmode-primary-color);
+}
+
+body.dark .preview {
+  background-color: var(--darkmode-background-color);
+}
+
+body.dark .preview > * {
+  color: var(--darkmode-primary-text-color);
+}
+
+/* body.dark For editor needs to be added! :) */
