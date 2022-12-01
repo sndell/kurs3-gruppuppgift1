@@ -68,3 +68,61 @@ body {
 .hidden {
   display: none;
 }
+
+/* Colors */
+:root {
+  --font-size: 16px;
+  --primary-text-color: black;
+  --secondary-text-color: black;
+  --primary-color: #3d3d3d;
+  --secondary-color: white;
+  --tertiary-color: white;
+  --accent-color: white;
+  --background-color: gray;
+
+/* Darkmode colors */
+  --darkmode-primary-text-color: white;
+  --darkmode-secondary-text-color: white;
+  --darkmode-primary-color: #272727;
+  --darkmode-secondary-color: #424242;
+  --darkmode-tertiary-color: white;
+  --darkmode-accent-color: white;
+  --darkmode-background-color: #1d1d1d;
+}
+
+/* Darkmode css for body */
+
+body.dark {
+	background-color: var(--darkmode-background-color);
+}
+
+body.dark .sidebar {
+  color: var(--darkmode-primary-text-color);
+  background-color: var(--darkmode-secondary-color);
+}
+
+body.dark .sidebar li > * {
+  color: var(--darkmode-primary-text-color);
+}
+
+body.dark .settings > * {
+  color: var(--darkmode-primary-text-color);
+}
+
+body.dark .sidebar .sidebar-header {
+  color: var(--darkmode-primary-text-color);
+}
+
+body.dark aside .notes {
+  background-color: var(--darkmode-primary-color);
+}
+
+body.dark .preview {
+  background-color: var(--darkmode-background-color);
+}
+
+body.dark .preview > * {
+  color: var(--darkmode-primary-text-color);
+}
+
+/* body.dark For editor needs to be added! :) */

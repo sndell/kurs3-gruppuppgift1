@@ -4,7 +4,7 @@
 
 body {
   display: flex;
-  background-color: rgb(255, 255, 255);
+  background-color: var(--background-color);
 }
 
 main {
@@ -30,54 +30,21 @@ main > * {
 }
 
 .settings > * {
-    padding: 1.4rem;
+    padding: 1.2rem;
+    color: var(--primary-text-color);
 }
 
-/* DarkMode Switch */
+.settings .otherSettings div {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Darkmode Switch */
 
 .dmSwitch {
-  /* display: flex;
-	align-items: center;
-	justify-content: center; */
-  /* position: absolute; */
 	margin: 0 0 0 1rem;
 	transition: background 0.2s linear;
 }
-
-
-
-body.dark {
-	background: #1d1d1d;
-}
-
-body.dark > * {
-  color: white;
-}
-
-body.dark .sidebar {
-  color: white;
-  background-color: #272727;
-}
-
-body.dark .sidebar li > * {
-  color: white;
-}
-
-
-
-
-/* body.dark {
-	background: #1d1d1d;
-}
-
-body.dark > * {
-  color: white;
-}
-
-body.dark .sidebar {
-  color: white;
-  background: #1d1d1d;
-} */
 
 .checkbox {
 	opacity: 0;
@@ -86,7 +53,6 @@ body.dark .sidebar {
 
 .label {
 	background-color: #111;
-	/* border-radius: 50px; */
 	cursor: pointer;
 	display: flex;
 	align-items: center;
@@ -114,7 +80,6 @@ body.dark .sidebar {
 	transform: translateX(32px);
 }
 
-
 .fa-moon {
 	color: #2151aa;
 }
@@ -123,98 +88,25 @@ body.dark .sidebar {
 	color: #f39c12;
 }
 
+/* Customization */
 
-
-/* .settings {
-    color: black;
-} */
-
-
-
-
-/* MODAL CSS */
-
-/* .contactModal > *{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
-} */
-.btnModal{
-    background-color: #272727;
-    color: white;
-    border: none;
-    margin-left: 1rem;
-    font-size: 24px;
-    padding: .8em 2em;
-}
-.btnModal:hover{
-    background-color: #5a5a5a;
-}
-.modal{
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4)
-}
-.modal-content{
-    background-color: #272727;
-    margin: 25% 25%;
-    padding: 2em;
-    width: 50%;
-    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.3), 0 7px 20px 0 rgba(0,0,0,0.17);
-    animation-name: openmodal;
-    animation-duration: .6s;
-    text-align: center;
-}
-/* .modal-content a{
-    color: blue;
-} */
-/* .modal-content a:hover{
-    color: green;
-} */
-.closeBtn{
-    color: black;
-    float:right;
-    margin: -40px -30px 0 0;
-    font-size: 33px;
-}
-.closeBtn:hover, .closeBtn:focus{
-    cursor:pointer;
-    color: red;
-}
-@keyframes openmodal{
-    from{opacity: 0}
-    to{opacity: 1}
+.colorPickers {
+  display: flex;
+  flex-direction: column;
 }
 
-
-.modalSettingsCollection {
-	display: flex;
-	flex-direction: column;
-	padding: 2rem 0 0 0;
+.colorPickers label {
+  margin: 1.4rem 0 .4rem 0;
 }
 
-.modalSettingsCollection > * {
-	padding: 0 0 2rem 0;
+.otherSettings {
+  display: flex;
+  flex-direction: column;
 }
 
-.modalSettingsCollection > div {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-}
-
-.modalSettingsCollection > div input {
-	margin-left: 1rem;
-}
-
-.savedThemes{
-	width: calc(200px + 100px);
-	display: flex;
-	flex-direction: column;
+.colorPickers input {
+  border: none;
+  background: none;
+  width: 120px;
+  height: 40px;
 }

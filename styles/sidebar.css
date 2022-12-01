@@ -5,7 +5,7 @@
 .sidebar {
   /* width: 200px; */
   height: 100%;
-  background-color: #fdfdfd;
+  background-color: var(--secondary-color);
   /* background: linear-gradient(135deg, #7fffff 0%, #f675ff 100%); */
   padding: 16px;
 }
@@ -20,6 +20,7 @@
 
 .sidebar-header {
   display: flex;
+  color: var(--primary-text-color);
   gap: 16px;
   height: 32px;
   align-items: center;
@@ -50,7 +51,7 @@
   align-items: center;
   gap: 16px;
   font-size: 16px;
-  color: black;
+  color: var(--primary-text-color);
   text-decoration: none;
   transition: font-weight 0.15s;
 }
