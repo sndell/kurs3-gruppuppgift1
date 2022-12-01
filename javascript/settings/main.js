@@ -102,7 +102,7 @@ function changeFontSize() {
 /* CLEARING ALL SETTINGS JSON */
 
 function resetSettings() {
-    let itemsToRemove = ["font-size", "darkModeState", "themeIDSaved", "themeArray", "primary-color", "secondary-color", "background-color", "tertiary-color", "accent-color", "accent-color", "primary-text-color", "secondary-text-color"];
+    let itemsToRemove = ["font-size", "darkModeState", "primary-color", "secondary-color", "background-color", "tertiary-color", "accent-color", "primary-text-color", "secondary-text-color"];
 
     for (item of itemsToRemove) {
         localStorage.removeItem(item);

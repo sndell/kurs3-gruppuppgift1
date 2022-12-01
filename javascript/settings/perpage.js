@@ -46,11 +46,24 @@ window.addEventListener("load", () => {
 
     /* APPLYING THEME */
 
-    r.style.setProperty('--primary-color', primaryColorSaved);
+    const setProperty = {
+        "--primary-color": primaryColorSaved,
+        "--secondary-color": secondaryColorSaved,
+        "--background-color": backgroundSaved,
+        "--tertiary-color": tertiarySaved,
+        "--accent-color": accentSaved,
+        "--primary-text-color": primaryTextColorSaved,
+        "--secondary-text-color": secondaryTextColorSaved
+    }
+    for (property in setProperty) {
+        r.style.setProperty(property, setProperty[property]);
+    };
+
+    /* r.style.setProperty('--primary-color', primaryColorSaved);
     r.style.setProperty('--secondary-color', secondaryColorSaved);
     r.style.setProperty('--background-color', backgroundSaved);
     r.style.setProperty('--tertiary-color', tertiarySaved);
     r.style.setProperty('--accent-color', accentSaved);
     r.style.setProperty('--primary-text-color', primaryTextColorSaved);
-    r.style.setProperty('--secondary-text-color', secondaryTextColorSaved);
+    r.style.setProperty('--secondary-text-color', secondaryTextColorSaved); */
 })
