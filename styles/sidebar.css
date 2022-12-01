@@ -5,7 +5,7 @@
 .sidebar {
   /* width: 200px; */
   height: 100%;
-  background-color: #fdfdfd;
+  background-color: var(--secondary-color);
   /* background: linear-gradient(135deg, #7fffff 0%, #f675ff 100%); */
   padding: 16px;
 }
