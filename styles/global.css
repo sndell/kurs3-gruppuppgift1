@@ -74,11 +74,11 @@ body {
   --font-size: 16px;
   --primary-text-color: black;
   --secondary-text-color: black;
-  --primary-color: white;
-  --secondary-color: black;
+  --primary-color: #3d3d3d;
+  --secondary-color: white;
   --tertiary-color: white;
   --accent-color: white;
-  --background-color: white;
+  --background-color: gray;
 
 /* Darkmode colors */
   --darkmode-primary-text-color: white;
