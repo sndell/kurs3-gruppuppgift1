@@ -56,12 +56,21 @@
         </section>
         <section class="notes">
           <div class="notes-header">
-            <input
-              type="text"
-              name="notes-search"
-              class="notes-header__search"
-              placeholder="Search for note"
-            />
+            <div class="top-bar">
+              <input
+                type="text"
+                name="notes-search"
+                class="notes-header__search"
+                placeholder="Search for note"
+              />
+              <button
+                class="filter-favorites-button"
+                onclick="ToggleFavorite()"
+              >
+                <i class="fa-solid fa-star" style="color: orange"></i>
+              </button>
+            </div>
+
             <div class="notes-tags">
               <!--Kommer läsas in från localstorage-->
               <div class="notes-tag">#bra tag</div>

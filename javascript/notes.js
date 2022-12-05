@@ -84,7 +84,9 @@ const editNote = (id) => {
 };
 
 const generateNoteList = () => {
-  const notes = JSON.parse(localStorage.getItem("notes"));
+  const notes = showFavorites
+    ? JSON.parse(localStorage.getItem("notes")).filter((note) => note.favorite)
+    : JSON.parse(localStorage.getItem("notes"));
   const notesList = document.querySelector(".notes-list");
   notesList.innerHTML = "";
 
