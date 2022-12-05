@@ -3,8 +3,6 @@ body {
   background-color: var(--background-color);
 }
 
-
-
 main {
   width: 100vw;
   display: grid;
@@ -184,4 +182,11 @@ main {
     justify-content: space-between;
     gap: 8px;
   }
+}
+
+.right {
+  margin: 0 0 4px 0;
+  float: right;
+  justify-content: center;
+  align-items: center;
 }
