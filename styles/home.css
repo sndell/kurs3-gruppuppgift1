@@ -184,9 +184,28 @@ main {
   }
 }
 
+/* Andy */
 .right {
   margin: 0 0 4px 0;
   float: right;
   justify-content: center;
   align-items: center;
+}
+
+.create-button {
+  margin: 20px 10px 10px 0;
+  width: 100%;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #0896af;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: white;
+  border: none;
+}
+
+.create-button:hover {
+  background-color: #078aa1;
+  color: whitesmoke;
+  cursor: pointer;
 }
