@@ -149,8 +149,43 @@ const r = document.querySelector(':root');
 
 /* GETTING SELECTED COLOR & SAVING */
 
-const handleColor = (property, color) => {
+/* const handleColor = (property, color) => {
     log(property + " " + color);
+
+  switch (property) {
+    case 'primary':
+      r.style.setProperty('--primary-color', color);
+      localStorage.setItem("primary-color", JSON.stringify(color));
+      break;
+    case 'secondary':
+      r.style.setProperty('--secondary-color', color);
+      localStorage.setItem("secondary-color", JSON.stringify(color));
+      break;
+    case 'background':
+      r.style.setProperty('--background-color', color);
+      localStorage.setItem("background-color", JSON.stringify(color));
+      break;
+    case 'tertiary':
+      r.style.setProperty('--tertiary-color', color);
+      localStorage.setItem("tertiary-color", JSON.stringify(color));
+      break;
+    case 'accent':
+      r.style.setProperty('--accent-color', color);
+      localStorage.setItem("accent-color", JSON.stringify(color));
+      break;
+    case 'primaryTextColor':
+      r.style.setProperty('--primary-text-color', color);
+      localStorage.setItem("primary-text-color", JSON.stringify(color));
+      break;
+    case 'secondaryTextColor':
+      r.style.setProperty('--secondary-text-color', color);
+      localStorage.setItem("secondary-text-color", JSON.stringify(color));
+      break;
+  }
+}; */
+
+function handleColor (property, color) {
+  log(property + " " + color);
 
   switch (property) {
     case 'primary':
