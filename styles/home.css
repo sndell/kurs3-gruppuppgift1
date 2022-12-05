@@ -36,6 +36,12 @@ main {
   background-color: white;
   padding: 4px 8px;
   border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.notes-tag-active {
+  background-color: pink;
 }
 
 .notes-tag-dark {
@@ -109,6 +115,11 @@ main {
   cursor: pointer;
 }
 
+.note-tags-container {
+  display: flex;
+  align-items: center;
+}
+
 .note-tags {
   margin-top: 8px;
   display: flex;
@@ -164,6 +175,23 @@ main {
 .preview-content {
   overflow-y: auto;
   height: 100%;
+}
+
+.tag-modal {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.327);
+  backdrop-filter: blur(4px);
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tag-modal-container {
+  border-radius: 4px;
+  background-color: red;
+  padding: 8px;
 }
 
 @media only screen and (max-width: 1068px) {
