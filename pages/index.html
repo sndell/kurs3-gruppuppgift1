@@ -54,22 +54,34 @@
             </ul>
           </nav>
         </section>
+
         <section class="notes">
           <div class="notes-header">
-            <input
-              type="text"
-              name="notes-search"
-              class="notes-header__search"
-              placeholder="Search for note"
-            />
+            <div class="top-bar">
+              <input
+                type="text"
+                name="notes-search"
+                class="notes-header__search"
+                placeholder="Search for note"
+              />
+              <button
+                class="filter-favorites-button"
+                onclick="ToggleFavorite()"
+              >
+                <i class="fa-solid fa-star" style="color: orange"></i>
+              </button>
+            </div>
+
             <div class="notes-tags">
-              <!--Kommer läsas in från localstorage-->
+              <!-- Kommer läsas in från localstorage
               <div class="notes-tag">#bra tag</div>
               <div class="notes-tag">#tag</div>
               <div class="notes-tag">#hejsan</div>
-              <div class="notes-tag">#bruh</div>
+              <div class="notes-tag">#bruh</div> -->
             </div>
-            <button onclick="newNote()">Ny note</button>
+            <button class="create-button" onclick="newNote()">
+              Create Note
+            </button>
           </div>
           <div class="notes-list">
             <!--Generates from localstorage in sidebar.js-->
@@ -81,6 +93,7 @@
     <script src="../javascript/settings/perpage.js"></script>
     <script src="../javascript/favorite.js"></script>
     <script src="../javascript/notes.js"></script>
+    <script src="../javascript/tags.js"></script>
     <script src="../javascript/sidebar.js"></script>
     <script src="../javascript/first-time-visitor.js"></script>
   </body>

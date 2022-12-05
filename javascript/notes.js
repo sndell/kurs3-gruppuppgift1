@@ -22,9 +22,9 @@ const selectNote = (id = undefined) => {
         <i class="fa-solid fa-trash" onclick='deleteNote(${note.id})'></i>
         <i ${
           note.favorite
-            ? 'class="fa-solid fa-star"'
+            ? 'class="fa-solid fa-star style="color: orange"'
             : 'class="fa-regular fa-star"'
-        } onclick='toggleFavorite(${note.id})'></i>
+        } onclick='addToFavorite(${note.id})'></i>
         <i class="fa-solid fa-print"></i>
         <i class="fa-solid fa-xmark" onclick='selectNote()'></i>
      </div>
@@ -83,8 +83,48 @@ const editNote = (id) => {
   window.location.href = `../pages/edit/?id=${id}`;
 };
 
-const generateNoteList = () => {
-  const notes = JSON.parse(localStorage.getItem('notes'));
+let selectedTag;
+
+const generateTagList = () => {
+  const noteTagsDiv = document.querySelector('.notes-tags');
+  noteTagsDiv.innerHTML = '';
+
+  let notes = showFavorites
+    ? JSON.parse(localStorage.getItem('notes')).filter((note) => note.favorite)
+    : JSON.parse(localStorage.getItem('notes'));
+  let tags = [];
+  let filteredNotes;
+  notes.forEach((note) => (tags = [...tags, ...note.tags]));
+  tags = [...new Set(tags)];
+  console.log(selectedTag);
+
+  tags.forEach((tag) => {
+    const tagDiv = document.createElement('div');
+    tagDiv.classList.add('notes-tag');
+    tagDiv.innerHTML = `#${tag}`;
+    tagDiv.onclick = () => {
+      if (selectedTag === tag) {
+        filteredNotes = notes;
+        selectedTag = undefined;
+      } else {
+        filteredNotes = notes.filter((note) => note.tags.includes(tag));
+        selectedTag = tag;
+      }
+
+      generateNoteList(filteredNotes);
+    };
+    noteTagsDiv.appendChild(tagDiv);
+  });
+};
+
+const generateNoteList = (notes = undefined) => {
+  if (!notes) {
+    notes = showFavorites
+      ? JSON.parse(localStorage.getItem('notes')).filter(
+          (note) => note.favorite
+        )
+      : JSON.parse(localStorage.getItem('notes'));
+  }
   const notesList = document.querySelector('.notes-list');
   notesList.innerHTML = '';
 
@@ -93,18 +133,27 @@ const generateNoteList = () => {
       const noteDiv = document.createElement('div');
       noteDiv.innerHTML = `
         <div class="note" onclick="selectNote(${note.id})">
-          <h1 class="note__title">${note.title}</h1>
+          <h1 class="note__title">${note.title} <i class='fa-${
+        note.favorite ? 'solid' : 'regular'
+      } fa-star right' style='color: ${
+        note.favorite ? 'orange' : 'black'
+      }' onclick='addToFavorite(${note.id})'></i></h1>
           <p class="note__preview">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas quo, quas neque asperiores laborum aut. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
           </p>
+          <div class="note-tags-container">
           <div class="note-tags">
             ${generateTags(note.tags)}
+          </div>
+          <i class="fa-solid fa-plus" onclick="createTag(${note.id})"></i>
           </div>
         </div>`;
 
       notesList.appendChild(noteDiv);
     });
   }
+
+  generateTagList();
 };
 
 const generateTags = (tags) => {
