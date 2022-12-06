@@ -36,12 +36,12 @@ const selectNote = (id = undefined) => {
       </div>
     </div>
     <hr />
-    <div class="preview" id="viewer" id="print-note">
+    <div class="preview-content" id="print-note">
     </div>
     `;
 
     const viewer = new toastui.Editor({
-      el: document.querySelector('#viewer'),
+      el: document.querySelector('.preview-content'),
       initialValue: note.content,
     });
   } else {
