@@ -14,14 +14,9 @@ const secondaryColorSaved = JSON.parse(localStorage.getItem("secondary-color"));
 const backgroundSaved = JSON.parse(localStorage.getItem("background-color"));
 const tertiarySaved = JSON.parse(localStorage.getItem("tertiary-color"));
 const accentSaved = JSON.parse(localStorage.getItem("accent-color"));
-const primaryTextColorSaved = JSON.parse(
-  localStorage.getItem("primary-text-color")
-);
-const secondaryTextColorSaved = JSON.parse(
-  localStorage.getItem("secondary-text-color")
-);
+const primaryTextColorSaved = JSON.parse(localStorage.getItem("primary-text-color"));
+const secondaryTextColorSaved = JSON.parse(localStorage.getItem("secondary-text-color"));
 const fontFamilySaved = JSON.parse(localStorage.getItem("font-family"));
-log(fontFamilySaved);
 
 /* GETTING DARKMODE STATUS */
 
@@ -127,8 +122,6 @@ function resetSettings() {
 
 /* DARKMODE SWITCH */
 
-/* DEFINING BUTTON */
-
 let checkb = document.getElementById("checkb");
 
 darkMode = darkModeStateSaved;
@@ -151,53 +144,14 @@ checkb.addEventListener("click", () => {
   }
   log("darkMode = " + darkMode);
 
-  /* SAVE DARKMODE STATE SO IT CAN BE CALLED GATHERED */
-
   localStorage.setItem("darkModeState", JSON.stringify(darkMode));
 });
 
 /* THEME */
 
-/* DEFINING R FOR :ROOT */
-
 const r = document.querySelector(":root");
 
 /* GETTING SELECTED COLOR & SAVING */
-
-/* const handleColor = (property, color) => {
-    log(property + " " + color);
-
-  switch (property) {
-    case 'primary':
-      r.style.setProperty('--primary-color', color);
-      localStorage.setItem("primary-color", JSON.stringify(color));
-      break;
-    case 'secondary':
-      r.style.setProperty('--secondary-color', color);
-      localStorage.setItem("secondary-color", JSON.stringify(color));
-      break;
-    case 'background':
-      r.style.setProperty('--background-color', color);
-      localStorage.setItem("background-color", JSON.stringify(color));
-      break;
-    case 'tertiary':
-      r.style.setProperty('--tertiary-color', color);
-      localStorage.setItem("tertiary-color", JSON.stringify(color));
-      break;
-    case 'accent':
-      r.style.setProperty('--accent-color', color);
-      localStorage.setItem("accent-color", JSON.stringify(color));
-      break;
-    case 'primaryTextColor':
-      r.style.setProperty('--primary-text-color', color);
-      localStorage.setItem("primary-text-color", JSON.stringify(color));
-      break;
-    case 'secondaryTextColor':
-      r.style.setProperty('--secondary-text-color', color);
-      localStorage.setItem("secondary-text-color", JSON.stringify(color));
-      break;
-  }
-}; */
 
 function handleColor(property, color) {
   log(property + " " + color);
@@ -260,8 +214,6 @@ function clickOutside(e) {
 
 function fontFam(option) {
   const r = document.querySelector(":root");
-
-  /* body.style.setProperty("font-family", fontFamily); */
 
   switch (option) {
     case "h1":
