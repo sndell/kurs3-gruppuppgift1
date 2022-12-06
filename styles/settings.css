@@ -110,3 +110,66 @@ main > * {
   width: 120px;
   height: 40px;
 }
+
+/* MODAL CSS */
+
+.contactModal > *{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+.buttonModal{
+    background-color: black;
+    color: white;
+    border: none;
+    margin-left: 1rem;
+    font-size: 18px;
+    padding: .4em 1em;
+}
+.buttonModal:hover{
+    background:darkgray;
+}
+.modal{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6)
+}
+.modal-content{
+    background-color: gray;
+    margin: 25% 25%;
+    padding: 2em;
+    width: 50%;
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.3), 0 7px 20px 0 rgba(0,0,0,0.17);
+    animation-name: openmodal;
+    animation-duration: .6s;
+    text-align: center;
+}
+.modalBtns {
+	display: flex;
+	flex-direction: column;
+}
+.modal-content a{
+    color: blue;
+}
+.modal-content a:hover{
+    color: green;
+}
+.closeBtn{
+    color: black;
+    float:right;
+    margin: -40px -25px 0 0;
+    font-size: 33px;
+}
+.closeBtn:hover, .closeBtn:focus{
+    cursor:pointer;
+    color: red;
+}
+@keyframes openmodal{
+    from{opacity: 0}
+    to{opacity: 1}
+}
