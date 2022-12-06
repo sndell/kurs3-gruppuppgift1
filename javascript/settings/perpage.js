@@ -16,6 +16,7 @@ const tertiarySaved = JSON.parse(localStorage.getItem('tertiary-color'));
 const accentSaved = JSON.parse(localStorage.getItem('accent-color'));
 const primaryTextColorSaved = JSON.parse(localStorage.getItem('primary-text-color'));
 const secondaryTextColorSaved = JSON.parse(localStorage.getItem('secondary-text-color'));
+const fontFamilySaved = JSON.parse(localStorage.getItem('font-family'));
 
 /* GETTING DARKMODE STATUS */
 
@@ -53,7 +54,8 @@ window.addEventListener("load", () => {
         "--tertiary-color": tertiarySaved,
         "--accent-color": accentSaved,
         "--primary-text-color": primaryTextColorSaved,
-        "--secondary-text-color": secondaryTextColorSaved
+        "--secondary-text-color": secondaryTextColorSaved,
+        "--font-family": fontFamilySaved,
     }
     for (property in setProperty) {
         r.style.setProperty(property, setProperty[property]);
