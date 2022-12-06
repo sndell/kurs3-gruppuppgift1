@@ -194,6 +194,15 @@ main {
   padding: 8px;
 }
 
+#viewer {
+  padding: 0;
+}
+
+.toastui-editor-contents p,
+h1 {
+  color: var(--text-primary-color) !important;
+}
+
 @media only screen and (max-width: 1068px) {
   .preview {
     position: absolute;
