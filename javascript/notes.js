@@ -1,17 +1,17 @@
-let currentNote = '';
+let currentNote = "";
 
 const selectNote = (id = undefined) => {
   if (id && currentNote !== id.toString()) {
-    document.querySelector('.preview').classList.remove('hidden');
+    document.querySelector(".preview").classList.remove("hidden");
     currentNote = id.toString();
-    const notes = JSON.parse(localStorage.getItem('notes'));
+    const notes = JSON.parse(localStorage.getItem("notes"));
     const note = notes.find((note) => note.id === id.toString());
-    const previewDiv = document.querySelector('.preview');
+    const previewDiv = document.querySelector(".preview");
     const created = new Date(parseInt(note.created)).toLocaleDateString(
-      'en-US'
+      "en-US"
     );
     const modified = new Date(parseInt(note.modified)).toLocaleDateString(
-      'en-US'
+      "en-US"
     );
 
     previewDiv.innerHTML = `
@@ -25,7 +25,9 @@ const selectNote = (id = undefined) => {
             ? 'class="fa-solid fa-star style="color: orange"'
             : 'class="fa-regular fa-star"'
         } onclick='addToFavorite(${note.id})'></i>
-        <i class="fa-solid fa-print"></i>
+        <i class="fa-solid fa-print" onclick="printDiv('${
+          note.title
+        }', 'print-note')"></i>
         <i class="fa-solid fa-xmark" onclick='selectNote()'></i>
      </div>
       <div class="preview-header-dates">
@@ -34,14 +36,14 @@ const selectNote = (id = undefined) => {
       </div>
     </div>
     <hr />
-    <div class="preview-content">
+    <div class="preview-content" id="print-note">
       ${note.content.html}
     </div>
     `;
   } else {
-    document.querySelector('.preview').innerHTML = '';
-    document.querySelector('.preview').classList.add('hidden');
-    currentNote = '';
+    document.querySelector(".preview").innerHTML = "";
+    document.querySelector(".preview").classList.add("hidden");
+    currentNote = "";
   }
 };
 
@@ -49,31 +51,31 @@ const newNote = () => {
   const id = Date.now().toString();
   const note = {
     id,
-    title: 'New note',
+    title: "New note",
     created: id,
     content: {
-      html: '',
-      markdown: '',
+      html: "",
+      markdown: "",
     },
     modified: id,
-    tags: ['tag1', 'tag2'],
+    tags: ["tag1", "tag2"],
     favorite: false,
   };
 
-  let notes = JSON.parse(localStorage.getItem('notes'));
+  let notes = JSON.parse(localStorage.getItem("notes"));
   if (notes) notes.unshift(note);
   else notes = [note];
 
-  localStorage.setItem('notes', JSON.stringify(notes));
+  localStorage.setItem("notes", JSON.stringify(notes));
 
   generateNoteList();
 };
 
 const deleteNote = (id) => {
-  const notes = JSON.parse(localStorage.getItem('notes'));
+  const notes = JSON.parse(localStorage.getItem("notes"));
   const noteIndex = notes.findIndex((note) => note.id === id.toString());
   notes.splice(noteIndex, 1);
-  localStorage.setItem('notes', JSON.stringify(notes));
+  localStorage.setItem("notes", JSON.stringify(notes));
 
   generateNoteList();
   selectNote();
@@ -86,12 +88,12 @@ const editNote = (id) => {
 let selectedTag;
 
 const generateTagList = () => {
-  const noteTagsDiv = document.querySelector('.notes-tags');
-  noteTagsDiv.innerHTML = '';
+  const noteTagsDiv = document.querySelector(".notes-tags");
+  noteTagsDiv.innerHTML = "";
 
   let notes = showFavorites
-    ? JSON.parse(localStorage.getItem('notes')).filter((note) => note.favorite)
-    : JSON.parse(localStorage.getItem('notes'));
+    ? JSON.parse(localStorage.getItem("notes")).filter((note) => note.favorite)
+    : JSON.parse(localStorage.getItem("notes"));
   let tags = [];
   let filteredNotes;
   notes.forEach((note) => (tags = [...tags, ...note.tags]));
@@ -99,8 +101,8 @@ const generateTagList = () => {
   console.log(selectedTag);
 
   tags.forEach((tag) => {
-    const tagDiv = document.createElement('div');
-    tagDiv.classList.add('notes-tag');
+    const tagDiv = document.createElement("div");
+    tagDiv.classList.add("notes-tag");
     tagDiv.innerHTML = `#${tag}`;
     tagDiv.onclick = () => {
       if (selectedTag === tag) {
@@ -120,23 +122,23 @@ const generateTagList = () => {
 const generateNoteList = (notes = undefined) => {
   if (!notes) {
     notes = showFavorites
-      ? JSON.parse(localStorage.getItem('notes')).filter(
+      ? JSON.parse(localStorage.getItem("notes")).filter(
           (note) => note.favorite
         )
-      : JSON.parse(localStorage.getItem('notes'));
+      : JSON.parse(localStorage.getItem("notes"));
   }
-  const notesList = document.querySelector('.notes-list');
-  notesList.innerHTML = '';
+  const notesList = document.querySelector(".notes-list");
+  notesList.innerHTML = "";
 
   if (notes) {
     notes.forEach((note) => {
-      const noteDiv = document.createElement('div');
+      const noteDiv = document.createElement("div");
       noteDiv.innerHTML = `
         <div class="note" onclick="selectNote(${note.id})">
           <h1 class="note__title">${note.title} <i class='fa-${
-        note.favorite ? 'solid' : 'regular'
+        note.favorite ? "solid" : "regular"
       } fa-star right' style='color: ${
-        note.favorite ? 'orange' : 'black'
+        note.favorite ? "orange" : "black"
       }' onclick='addToFavorite(${note.id})'></i></h1>
           <p class="note__preview">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas quo, quas neque asperiores laborum aut. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
@@ -157,7 +159,7 @@ const generateNoteList = (notes = undefined) => {
 };
 
 const generateTags = (tags) => {
-  let tagDivs = '';
+  let tagDivs = "";
   tags.forEach((tag) => {
     tagDivs += `<div class='notes-tag notes-tag-dark'>#${tag}</div>`;
   });
