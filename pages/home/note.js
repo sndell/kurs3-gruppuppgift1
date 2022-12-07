@@ -34,7 +34,7 @@ const selectNote = (id = undefined) => {
     <div class="preview-header">
       <h2 class="preview-header__title">${note.title}</h2>
         <div class="preview-header-actions">
-          <i class="fa-solid fa-trash preview-header-actions__action"></i>
+          <i class="fa-solid fa-trash preview-header-actions__action" onclick="deleteNote(${note.id})"></i>
           <i class="fa-solid fa-pen preview-header-actions__action"></i>
           <i class="fa-solid fa-print preview-header-actions__action"></i>
           <i class="fa-regular fa-star preview-header-actions__action"></i>
@@ -43,6 +43,7 @@ const selectNote = (id = undefined) => {
         <i class="fa-solid fa-xmark"></i>
       </button>
     </div>
+    <div class="preview-viewer"></div>
   `;
     console.log(note);
     console.log(id);
@@ -51,6 +52,16 @@ const selectNote = (id = undefined) => {
     preview.innerHTML = '';
     preview.classList.add('hidden');
   }
+};
+
+const deleteNote = (id) => {
+  const notes = JSON.parse(localStorage.getItem('notes'));
+  const noteIndex = notes.findIndex((note) => note.id === id.toString());
+  notes.splice(noteIndex, 1);
+  localStorage.setItem('notes', JSON.stringify(notes));
+
+  generateNoteList();
+  selectNote();
 };
 
 const generateNoteList = (notes = undefined) => {
