@@ -28,13 +28,11 @@
   <body>
     <main>
       <div class="header">
-        <h2 class="header__title">New note</h2>
-        <div class="header-actions">
-          <i class="fa-solid fa-file-import"></i>
-          <i class="fa-solid fa-file-export"></i>
-          <i class="fa-solid fa-brush"></i>
-        </div>
-        <button class="header__close">
+        <h2 class="header__title" contenteditable spellcheck="false">
+          New note
+        </h2>
+        <!-- <div class="header-actions"></div> -->
+        <button class="header__close" onclick="closeEditor()">
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>

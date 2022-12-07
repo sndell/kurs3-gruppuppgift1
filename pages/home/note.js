@@ -1,3 +1,19 @@
+addEventListener('load', () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const selected = urlParams.get('selected');
+
+  if (selected) {
+    history.replaceState &&
+      history.replaceState(
+        null,
+        '',
+        location.pathname +
+          location.search.replace(/[\?&]selected=[^&]+/, '').replace(/^&/, '?')
+      );
+    selectNote(selected);
+  }
+});
+
 const newNote = () => {
   const id = Date.now().toString();
   const newNote = {
@@ -35,7 +51,7 @@ const selectNote = (id = undefined) => {
       <h2 class="preview-header__title">${note.title}</h2>
         <div class="preview-header-actions">
           <i class="fa-solid fa-trash preview-header-actions__action" onclick="deleteNote(${note.id})"></i>
-          <i class="fa-solid fa-pen preview-header-actions__action"></i>
+          <i class="fa-solid fa-pen preview-header-actions__action" onclick="editNote(${note.id})"></i>
           <i class="fa-solid fa-print preview-header-actions__action"></i>
           <i class="fa-regular fa-star preview-header-actions__action"></i>
         </div>
@@ -45,6 +61,10 @@ const selectNote = (id = undefined) => {
     </div>
     <div class="preview-viewer"></div>
   `;
+    const viewer = new toastui.Editor({
+      el: document.querySelector('.preview-viewer'),
+      initialValue: note.content,
+    });
     console.log(note);
     console.log(id);
   } else {
@@ -62,6 +82,10 @@ const deleteNote = (id) => {
 
   generateNoteList();
   selectNote();
+};
+
+const editNote = (id) => {
+  window.location.href = `../edit/?id=${id}`;
 };
 
 const generateNoteList = (notes = undefined) => {

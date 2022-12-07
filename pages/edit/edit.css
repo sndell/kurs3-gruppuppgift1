@@ -1,25 +1,27 @@
 body {
   height: 100vh;
-  padding: 16px;
 }
 
 main {
   height: 100%;
-  display: grid;
-  grid-template-rows: max-content auto;
-  /* margin: 16px; */
-  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
   background-color: #fff;
   box-shadow: inset 24px 24px 48px #d9d9d9, inset -24px -24px 48px #ffffff;
 }
 
 .header {
-  /* margin: 16px; */
+  margin: 16px;
+  /* height: 40px; */
   border-radius: 8px;
   /* box-shadow: inset 24px 24px 48px #d9d9d9, inset -24px -24px 48px #ffffff; */
   padding: 16px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 8px 8px 16px #d9d9d9, -8px -8px 16px #ffffff;
 }
 
 .header__title {
@@ -27,11 +29,15 @@ main {
   display: flex;
   align-items: center;
   height: 40px;
+  font-size: 24px;
   padding: 8px;
-  padding: 0 8px;
+  outline: none;
+  border: 1px solid rgba(135, 135, 135, 0);
+}
+
+.header__title:focus {
   border-radius: 8px;
-  background: #ffffff;
-  box-shadow: 8px 8px 16px #d9d9d9, -8px -8px 16px #ffffff;
+  border: 1px solid rgba(135, 135, 135, 0.387);
 }
 
 .header-actions {
@@ -51,17 +57,17 @@ main {
 
 .header__close {
   cursor: pointer;
-  padding: 0 12.5px;
-  /* font-size: 24px; */
+  padding: 8 12.5px;
+  font-size: 24px;
   border: none;
-  border-radius: 8px;
+  background: none;
+  /* border-radius: 8px;
   background: #ffffff;
-  box-shadow: 8px 8px 16px #d9d9d9, -8px -8px 16px #ffffff;
+  box-shadow: 8px 8px 16px #d9d9d9, -8px -8px 16px #ffffff; */
 }
 
 .editor {
-  margin: 16px;
-  margin-top: 0;
+  margin: 0 16px 16px 16px;
   border-radius: 8px;
   background: #ffffff;
   box-shadow: 8px 8px 16px #d9d9d9, -8px -8px 16px #ffffff;

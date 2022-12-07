@@ -192,7 +192,9 @@ img.ProseMirror-separator {
   padding: 18px 25px;
 }
 .toastui-editor-defaultUI {
-  border: 1px solid #dadde6;
+  border-radius: 8px;
+  overflow: hidden;
+  /* border: 1px solid #dadde6; */
   border-radius: 4px;
   font-family: Open Sans, Helvetica Neue, Helvetica, Arial, ë‚˜ëˆ”ë°”ë¥¸ê³ ë”•,
     Nanum Barun Gothic, ë§‘ì€ê³ ë”•, Malgun Gothic, sans-serif;
@@ -295,9 +297,10 @@ img.ProseMirror-separator {
   margin-left: -1px;
 }
 .toastui-editor-defaultUI-toolbar {
-  background-color: #f7f9fc;
-  border-bottom: 1px solid #ebedf2;
-  border-radius: 3px 3px 0 0;
+  /* background-color: #f7f9fc; */
+  background-color: #efefef;
+  /* border-bottom: 1px solid #ebedf2; */
+  /* border-radius: 3px 3px 0 0; */
   display: -ms-flexbox;
   display: flex;
   height: 45px;
@@ -308,7 +311,7 @@ img.ProseMirror-separator {
   height: 46px;
 }
 .toastui-editor-toolbar-divider {
-  background-color: #e1e3e9;
+  background-color: rgba(0, 0, 0, 0.289);
   display: inline-block;
   height: 18px;
   margin: 14px 12px;
@@ -319,8 +322,8 @@ img.ProseMirror-separator {
   display: flex;
 }
 .toastui-editor-defaultUI-toolbar button {
-  border: 1px solid #f7f9fc;
-  border-radius: 3px;
+  border: 1px solid #efefef;
+  border-radius: 8px;
   box-sizing: border-box;
   cursor: pointer;
   height: 32px;
@@ -330,7 +333,7 @@ img.ProseMirror-separator {
 }
 .toastui-editor-defaultUI-toolbar button:not(:disabled):hover {
   background-color: #fff;
-  border: 1px solid #e4e7ee;
+  /* border: 1px solid #e4e7ee; */
 }
 .toastui-editor-defaultUI-toolbar .scroll-sync {
   color: #81858f;
@@ -393,13 +396,17 @@ img.ProseMirror-separator {
   margin: 0 5px;
 }
 .toastui-editor-dropdown-toolbar {
-  background-color: #f7f9fc;
-  border: 1px solid #dadde6;
-  border-radius: 2px;
+  background-color: #efefef;
+  /* border: 1px solid #00000033; */
+  margin: 8px;
+  border-radius: 8px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08);
   display: -ms-flexbox;
   display: flex;
-  height: 46px;
+  left: 0;
+  width: calc(100% - 16px);
+  flex-wrap: wrap;
+  /* height: 46px; */
   position: absolute;
   z-index: 30;
 }
@@ -410,14 +417,16 @@ img.ProseMirror-separator {
 }
 .toastui-editor-popup {
   border: 1px solid #dadde6;
-  border-radius: 2px;
+  border-radius: 8px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08);
-  margin-right: auto;
+  margin: 0 !important;
+  margin-top: 16px !important;
   position: absolute;
   width: 400px;
   z-index: 30;
 }
 .toastui-editor-popup-body {
+  background-color: #fff;
   font-size: 12px;
   padding: 15px;
 }
