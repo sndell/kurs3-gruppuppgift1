@@ -103,7 +103,7 @@ const deleteNote = (id) => {
   notes.splice(noteIndex, 1);
   localStorage.setItem('notes', JSON.stringify(notes));
 
-  generateNoteList();
+  generateTagList();
   selectNote();
 };
 
@@ -134,12 +134,10 @@ const generateNoteList = (notes = undefined) => {
           }</p>
         </div>
         <div class="note-tags">
-          <button class="note-tags__tag">
+          <button class="note-tags__tag" onclick="createTag(${note.id})">
             <i class="fa-solid fa-plus"></i>
           </button>
-          <button class="note-tags__tag">#hej</button>
-          <button class="note-tags__tag">#vafan</button>
-          <button class="note-tags__tag">#bruh</button>
+          ${generateTags(note.id, note.tags)}
         </div>
       </div> 
       `;
@@ -149,4 +147,56 @@ const generateNoteList = (notes = undefined) => {
   }
 };
 
-generateNoteList();
+let selectedTag = '';
+let selectedElement;
+
+const generateTagList = () => {
+  const noteTagsDiv = document.querySelector('.menu-actions-tags');
+  noteTagsDiv.innerHTML = '';
+  noteTagsDiv.classList.remove('hidden');
+
+  let notes = showFavorites
+    ? JSON.parse(localStorage.getItem('notes')).filter((note) => note.favorite)
+    : JSON.parse(localStorage.getItem('notes'));
+  let tags = [];
+  let filteredNotes;
+  notes.forEach((note) => (tags = [...tags, ...note.tags]));
+  tags = [...new Set(tags)];
+  tags.forEach((tag) => {
+    const tagDiv = document.createElement('button');
+    tagDiv.classList.add('menu-actions-tags__tag');
+    tagDiv.innerHTML = `#${tag}`;
+    tagDiv.onclick = () => {
+      if (selectedTag === tag) {
+        filteredNotes = notes;
+        selectedElement.classList.remove('selected');
+        selectedTag = undefined;
+        selectedElement = undefined;
+      } else {
+        if (selectedElement) selectedElement.classList.remove('selected');
+        filteredNotes = notes.filter((note) => note.tags.includes(tag));
+        selectedTag = tag;
+        tagDiv.classList.add('selected');
+        selectedElement = tagDiv;
+      }
+      generateNoteList(filteredNotes);
+    };
+    noteTagsDiv.appendChild(tagDiv);
+  });
+
+  if (!tags) noteTagsDiv.classList.add('hidden');
+
+  if (filteredNotes) generateNoteList(filteredNotes);
+  else generateNoteList(notes);
+};
+
+const generateTags = (id, tags) => {
+  let tagDivs = '';
+  tags.forEach((tag) => {
+    tagDivs += `<button class="note-tags__tag" onclick="removeTag(${id}, '${tag}')">#${tag}</button>`;
+  });
+
+  return tagDivs;
+};
+
+generateTagList();

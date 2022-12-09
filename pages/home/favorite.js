@@ -7,7 +7,7 @@ const toggleFavorite = (id) => {
   localStorage.setItem('notes', JSON.stringify(notes));
   selectNote();
   selectNote(id);
-  generateNoteList();
+  generateTagList();
 };
 
 const toggleShowFavorite = () => {
@@ -25,5 +25,5 @@ const toggleShowFavorite = () => {
   }
 
   showFavorites = !showFavorites;
-  generateNoteList();
+  generateTagList();
 };

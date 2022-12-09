@@ -10,6 +10,63 @@ main {
   grid-template-columns: minmax(auto, 320px) auto;
 }
 
+.tag-modal {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.382);
+  backdrop-filter: blur(2px);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tag-modal-container {
+  border-radius: 8px;
+  padding: 16px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0 16px;
+}
+
+.tag-modal__input {
+  width: 100%;
+  padding: 0 12px;
+  font-size: 16px;
+  height: 32px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  background: #ffffff;
+  box-shadow: inset 8px 8px 16px #d9d9d9, inset -8px -8px 16px #ffffff;
+}
+
+.tag-modal__confirm,
+.tag-modal__cancel {
+  cursor: pointer;
+}
+
+.tag-modal__confirm {
+  border-radius: 8px;
+  padding: 8px;
+  border: none;
+  outline: none;
+  background: #ffffff;
+  box-shadow: 8px 8px 16px #d9d9d9, -8px -8px 16px #ffffff;
+}
+
+.tag-modal__cancel {
+  border-radius: 8px;
+  padding: 8px;
+  border: none;
+  outline: none;
+  background-color: #fff;
+  box-shadow: 8px 8px 16px #d9d9d9, -8px -8px 16px #ffffff;
+}
+
 .menu {
   padding-right: 16px;
   display: flex;
@@ -65,12 +122,18 @@ main {
 }
 
 .menu-actions-tags__tag {
+  cursor: pointer;
   background-color: white;
   border: none;
   padding: 8px;
   border-radius: 8px;
   background: #ffffff;
   box-shadow: 7px 7px 15px #d9d9d9, -7px -7px 15px #ffffff;
+}
+
+.selected {
+  color: white;
+  background-color: black;
 }
 
 .menu-actions__new {
@@ -135,6 +198,7 @@ main {
 }
 
 .note-tags__tag {
+  cursor: pointer;
   border: none;
   padding: 8px;
   border-radius: 8px;
