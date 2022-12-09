@@ -13,7 +13,6 @@ const toggleFavorite = (id) => {
 const toggleShowFavorite = () => {
   const favoriteShow = document.querySelector('.favorite-hide');
   const favoriteHide = document.querySelector('.favorite-show');
-  console.log(showFavorites);
 
   if (showFavorites) {
     favoriteShow.classList.remove('hidden');

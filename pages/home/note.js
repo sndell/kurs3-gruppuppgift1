@@ -184,7 +184,9 @@ const generateTagList = () => {
     noteTagsDiv.appendChild(tagDiv);
   });
 
-  if (!tags) noteTagsDiv.classList.add('hidden');
+  if (tags.length < 1) {
+    noteTagsDiv.classList.add('hidden');
+  }
 
   if (filteredNotes) generateNoteList(filteredNotes);
   else generateNoteList(notes);
