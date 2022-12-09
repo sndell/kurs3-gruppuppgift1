@@ -38,7 +38,6 @@ const newNote = () => {
 let currentNote = '';
 const selectNote = (id = undefined) => {
   const preview = document.querySelector('.preview');
-
   if (id && currentNote !== id.toString()) {
     const notes = JSON.parse(localStorage.getItem('notes'));
     const note = notes.find((note) => note.id === id.toString());
@@ -58,10 +57,20 @@ const selectNote = (id = undefined) => {
         <h2 class="preview-header__title">${note.title}</h2>
       </div>
       <div class="preview-header-actions">
-        <i class="fa-solid fa-trash preview-header-actions__action" onclick="deleteNote(${note.id})"></i>
-        <i class="fa-solid fa-pen preview-header-actions__action" onclick="editNote(${note.id})"></i>
-        <i class="fa-solid fa-print preview-header-actions__action" onclick="printNote('${note.title}')"></i>
-        <i class="fa-regular fa-star preview-header-actions__action"></i>
+        <i class="fa-solid fa-trash preview-header-actions__action" onclick="deleteNote(${
+          note.id
+        })"></i>
+        <i class="fa-solid fa-pen preview-header-actions__action" onclick="editNote(${
+          note.id
+        })"></i>
+        <i class="fa-solid fa-print preview-header-actions__action" onclick="printNote('${
+          note.title
+        }')"></i>
+        <i class="${
+          note.favorite ? 'fa-solid fa-star' : 'fa-regular fa-star'
+        } preview-header-actions__action" onclick="toggleFavorite(${
+      note.id
+    })"></i>
       </div>
       <div class="preview-header-right">
         <button class="preview-header__close" onclick="selectNote()">
@@ -103,7 +112,12 @@ const editNote = (id) => {
 };
 
 const generateNoteList = (notes = undefined) => {
-  if (!notes) notes = JSON.parse(localStorage.getItem('notes'));
+  if (!notes)
+    notes = showFavorites
+      ? JSON.parse(localStorage.getItem('notes')).filter(
+          (note) => note.favorite
+        )
+      : JSON.parse(localStorage.getItem('notes'));
 
   const notesList = document.querySelector('.menu-notes');
   notesList.innerHTML = '';

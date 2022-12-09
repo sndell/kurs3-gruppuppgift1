@@ -48,6 +48,8 @@ main {
 }
 
 .menu-actions__favorite {
+  border: none;
+  cursor: pointer;
   display: flex;
   align-items: center;
   border-radius: 8px;
@@ -225,6 +227,7 @@ main {
 }
 
 .preview-dates h3 {
+  font-weight: 400;
   font-size: 12px;
   color: rgba(0, 0, 0, 0.553);
 }

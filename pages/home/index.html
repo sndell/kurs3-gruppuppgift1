@@ -18,6 +18,7 @@
       src="https://uicdn.toast.com/editor/latest/toastui-editor-viewer.js"
       defer
     ></script>
+    <script src="favorite.js" defer></script>
     <script src="print.js" defer></script>
     <script src="note.js" defer></script>
     <title>Document</title>
@@ -54,7 +55,13 @@
               class="menu-actions__search"
               placeholder="Search"
             />
-            <i class="fa-regular fa-star menu-actions__favorite"></i>
+            <button
+              class="menu-actions__favorite"
+              onclick="toggleShowFavorite()"
+            >
+              <i class="fa-regular fa-star favorite-hide"></i>
+              <i class="fa-solid fa-star favorite-show hidden"></i>
+            </button>
           </div>
           <div class="menu-actions-tags">
             <button class="menu-actions-tags__tag">#hej</button>
