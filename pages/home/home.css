@@ -7,7 +7,7 @@ main {
   width: 100%;
   max-height: 100vh;
   display: grid;
-  grid-template-columns: minmax(auto, 360px) auto;
+  grid-template-columns: minmax(auto, 320px) auto;
 }
 
 .menu {
@@ -156,8 +156,19 @@ main {
   border-radius: 8px;
   /* box-shadow: inset 24px 24px 48px #d9d9d9, inset -24px -24px 48px #ffffff; */
   padding: 16px;
+  /* display: flex; */
+  display: grid;
+  grid-template-columns: 1fr max-content 1fr;
+  /* justify-content: space-between; */
+}
+
+.preview-header-left {
   display: flex;
-  justify-content: space-between;
+}
+
+.preview-header-right {
+  display: flex;
+  justify-content: end;
 }
 
 .preview-header__title {
@@ -197,17 +208,32 @@ main {
   box-shadow: 8px 8px 16px #d9d9d9, -8px -8px 16px #ffffff;
 }
 
-.preview-viewer {
-  padding: 16px;
-  overflow-y: auto;
+.preview-container {
   margin: 16px;
+  overflow-y: auto;
   margin-top: 0;
   border-radius: 8px;
   background: #ffffff;
   box-shadow: 8px 8px 16px #d9d9d9, -8px -8px 16px #ffffff;
 }
 
-@media only screen and (max-width: 992px) {
+.preview-dates {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 16px;
+  background-color: #efefef;
+}
+
+.preview-dates h3 {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.553);
+}
+
+.preview-viewer {
+  padding: 16px;
+}
+
+@media only screen and (max-width: 1072px) {
   .preview {
     margin: 0;
     left: 0;

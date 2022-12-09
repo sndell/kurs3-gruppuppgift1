@@ -80,13 +80,13 @@ const editor = new toastui.Editor({
   events: {
     change: () => {
       note.content = editor.getMarkdown();
+      note.modified = Date.now().toString();
       updateLocalStorage();
     },
   },
 });
 
 const closeEditor = () => {
-  console.log('here');
   window.location.href = `../home/?selected=${id}`;
 };
 

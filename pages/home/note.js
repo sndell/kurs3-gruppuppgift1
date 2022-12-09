@@ -32,7 +32,7 @@ const newNote = () => {
   else notes = [newNote];
 
   localStorage.setItem('notes', JSON.stringify(notes));
-  generateNoteList();
+  editNote(id);
 };
 
 let currentNote = '';
@@ -42,31 +42,45 @@ const selectNote = (id = undefined) => {
   if (id && currentNote !== id.toString()) {
     const notes = JSON.parse(localStorage.getItem('notes'));
     const note = notes.find((note) => note.id === id.toString());
+    const created = new Date(parseInt(note.created)).toLocaleDateString(
+      'en-US'
+    );
+    const modified = new Date(parseInt(note.modified)).toLocaleDateString(
+      'en-US'
+    );
     currentNote = id.toString();
 
     preview.classList.remove('hidden');
 
     preview.innerHTML = `
     <div class="preview-header">
-      <h2 class="preview-header__title">${note.title}</h2>
-        <div class="preview-header-actions">
-          <i class="fa-solid fa-trash preview-header-actions__action" onclick="deleteNote(${note.id})"></i>
-          <i class="fa-solid fa-pen preview-header-actions__action" onclick="editNote(${note.id})"></i>
-          <i class="fa-solid fa-print preview-header-actions__action"></i>
-          <i class="fa-regular fa-star preview-header-actions__action"></i>
-        </div>
-      <button class="preview-header__close" onclick="selectNote()">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
+      <div class="preview-header-left">
+        <h2 class="preview-header__title">${note.title}</h2>
+      </div>
+      <div class="preview-header-actions">
+        <i class="fa-solid fa-trash preview-header-actions__action" onclick="deleteNote(${note.id})"></i>
+        <i class="fa-solid fa-pen preview-header-actions__action" onclick="editNote(${note.id})"></i>
+        <i class="fa-solid fa-print preview-header-actions__action"></i>
+        <i class="fa-regular fa-star preview-header-actions__action"></i>
+      </div>
+      <div class="preview-header-right">
+        <button class="preview-header__close" onclick="selectNote()">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
     </div>
-    <div class="preview-viewer"></div>
+    <div class="preview-container">
+      <div class="preview-dates">
+        <h3>Created ${created}</h3>
+        <h3>Modified ${modified}</h3>
+      </div>
+      <div class="preview-viewer"></div>
+    </div>
   `;
     const viewer = new toastui.Editor({
       el: document.querySelector('.preview-viewer'),
       initialValue: note.content,
     });
-    console.log(note);
-    console.log(id);
   } else {
     currentNote = '';
     preview.innerHTML = '';
