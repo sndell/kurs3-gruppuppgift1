@@ -60,7 +60,7 @@ const selectNote = (id = undefined) => {
       <div class="preview-header-actions">
         <i class="fa-solid fa-trash preview-header-actions__action" onclick="deleteNote(${note.id})"></i>
         <i class="fa-solid fa-pen preview-header-actions__action" onclick="editNote(${note.id})"></i>
-        <i class="fa-solid fa-print preview-header-actions__action"></i>
+        <i class="fa-solid fa-print preview-header-actions__action" onclick="printNote('${note.title}')"></i>
         <i class="fa-regular fa-star preview-header-actions__action"></i>
       </div>
       <div class="preview-header-right">
