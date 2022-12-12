@@ -145,7 +145,7 @@ img.ProseMirror-separator {
   display: block;
 }
 .toastui-editor-ww-container {
-  background-color: #fff;
+  background-color: var(--primary-color);
   display: none;
   height: inherit;
   overflow: hidden;
@@ -298,7 +298,8 @@ img.ProseMirror-separator {
 }
 .toastui-editor-defaultUI-toolbar {
   /* background-color: #f7f9fc; */
-  background-color: #efefef;
+  /* background-color: #efefef; */
+  background-color: var(--secondary-color);
   /* border-bottom: 1px solid #ebedf2; */
   /* border-radius: 3px 3px 0 0; */
   display: -ms-flexbox;
@@ -322,8 +323,9 @@ img.ProseMirror-separator {
   display: flex;
 }
 .toastui-editor-defaultUI-toolbar button {
-  border: 1px solid #efefef;
+  background-color: var(--primary-color);
   border-radius: 8px;
+  border: 1.5px solid var(--secondary-color);
   box-sizing: border-box;
   cursor: pointer;
   height: 32px;
@@ -332,7 +334,7 @@ img.ProseMirror-separator {
   width: 32px;
 }
 .toastui-editor-defaultUI-toolbar button:not(:disabled):hover {
-  background-color: #fff;
+  background-color: var(--primary-gradient-color);
   /* border: 1px solid #e4e7ee; */
 }
 .toastui-editor-defaultUI-toolbar .scroll-sync {
@@ -396,7 +398,7 @@ img.ProseMirror-separator {
   margin: 0 5px;
 }
 .toastui-editor-dropdown-toolbar {
-  background-color: #efefef;
+  background-color: var(--secondary-color);
   /* border: 1px solid #00000033; */
   margin: 8px;
   border-radius: 8px;

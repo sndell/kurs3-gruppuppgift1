@@ -13,21 +13,13 @@
     />
     <link rel="stylesheet" href="../../styles/sidebar.css" />
     <link rel="stylesheet" href="../../styles/global.css" />
-    <link rel="stylesheet" href="home.css" />
-    <script
-      src="https://uicdn.toast.com/editor/latest/toastui-editor-viewer.js"
-      defer
-    ></script>
+    <link rel="stylesheet" href="settings.css" />
     <script
       src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"
       defer
     ></script>
     <script src="../../util/theme-loader.js" defer></script>
-    <script src="tags.js" defer></script>
-    <script src="search.js" defer></script>
-    <script src="favorite.js" defer></script>
-    <script src="print.js" defer></script>
-    <script src="note.js" defer></script>
+    <script src="./settings.js" defer></script>
     <title>Document</title>
   </head>
   <body>
@@ -36,7 +28,7 @@
       <nav>
         <ul class="sidebar-list">
           <li>
-            <a href="" class="sidebar-list-item sidebar-list-item__active">
+            <a href="../home/" class="sidebar-list-item">
               <i class="fa-solid fa-note-sticky"></i>
             </a>
           </li>
@@ -46,7 +38,7 @@
             </a>
           </li>
           <li>
-            <a href="../settings/" class="sidebar-list-item">
+            <a href="" class="sidebar-list-item sidebar-list-item__active">
               <i class="fa-solid fa-gear"></i>
             </a>
           </li>
@@ -54,30 +46,35 @@
       </nav>
     </aside>
     <main>
-      <aside class="menu">
-        <div class="menu-actions">
-          <div class="menu-actions-container">
-            <input
-              type="text"
-              class="menu-actions__search"
-              placeholder="Search"
-            />
-            <button
-              class="menu-actions__favorite"
-              onclick="toggleShowFavorite()"
+      <section class="settings">
+        <div class="settings-container">
+          <div class="settings-option">
+            <label for="font-selection">Font</label>
+            <select
+              name="font-selection"
+              onchange="handleFont()"
+              class="font-selection"
             >
-              <i class="fa-regular fa-star favorite-hide"></i>
-              <i class="fa-solid fa-star favorite-show hidden"></i>
-            </button>
+              <option value="nunito">Nunito</option>
+              <option value="roboto">Roboto</option>
+              <option value="chivomono">Chivo Mono</option>
+              <option value="indieflower ">Indie Flower</option>
+            </select>
           </div>
-          <div class="menu-actions-tags"></div>
-          <button class="menu-actions__new" onclick="newNote()">
-            Create note
-          </button>
+          <div class="settings-option">
+            <label for="theme-selection">Theme</label>
+            <select
+              name="theme-selection"
+              onchange="handleTheme()"
+              class="theme-selection"
+            >
+              <option value="light">Light</option>
+              <option value="dark">Dark</option>
+              <option value="green">Blue</option>
+            </select>
+          </div>
         </div>
-        <div class="menu-notes"></div>
-      </aside>
-      <section class="preview hidden"></section>
+      </section>
     </main>
   </body>
 </html>

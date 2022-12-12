@@ -73,7 +73,7 @@ const editor = new toastui.Editor({
       },
       {
         el: createStyleButton(),
-        tooltip: 'Change note style',
+        tooltip: 'Change note font',
       },
     ],
   ],

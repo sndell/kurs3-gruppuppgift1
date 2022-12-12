@@ -72,11 +72,6 @@ h6 {
 #__next {
   isolation: isolate;
 }
-body {
-  font-family: 'Nunito', sans-serif;
-  line-height: 1;
-  overflow: hidden;
-}
 
 * {
   scrollbar-width: none;
@@ -91,12 +86,32 @@ body {
 }
 
 :root {
-  --primary-color: rgb(255, 255, 255);
-  --secondary-color: rgb(255, 255, 255);
-  --text-color: rgb(0, 0, 0);
-  --accent-color: rgb(0, 255, 242);
-  /* --primary-color: rgb(28, 29, 31);
-  --secondary-color: rgb(45, 48, 53);
-  --text-color: rgb(155, 156, 156);
-  --accent-color: rgb(107, 219, 219); */
+  --font-family: 'Nunito', sans-serif;
+  --primary-color: #ffffff;
+  --primary-gradient-color: #d9d9d9;
+  --secondary-color: #efefef;
+  --accent-color: #000000;
+  --primary-text-color: #000000;
+  --secondary-text-color: #ffffff;
+}
+
+body {
+  font-family: var(--font-family);
+  line-height: 1;
+  overflow: hidden;
+}
+
+button,
+input,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+select,
+label,
+li {
+  color: var(--primary-text-color) !important;
 }
