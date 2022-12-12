@@ -1,5 +1,46 @@
-if (font) document.querySelector('.font-selection').value = font.value;
 if (theme) document.querySelector('.theme-selection').value = theme.value;
+
+addEventListener('load', () => {
+  let list;
+  const test = JSON.parse(localStorage.getItem('fonts'));
+  if (!test) {
+    list = ['Nunito'];
+    localStorage.setItem('fonts', JSON.stringify(list));
+  } else list = test;
+
+  generateOptions(list);
+  if (font) document.querySelector('.font-selection').value = font.font;
+});
+
+const generateOptions = (list) => {
+  const fontSelect = document.querySelector('.font-selection');
+  fontSelect.innerHTML = '';
+  list.forEach((item) => {
+    let option = new Option(item, item);
+    fontSelect.add(option, undefined);
+  });
+};
+
+const handleAdd = () => {
+  const text = document.querySelector('.font-add').value;
+
+  let fonts = JSON.parse(localStorage.getItem('fonts'));
+  console.log(fonts);
+
+  WebFont.load({
+    google: {
+      families: [`${text}:300,400,700`],
+    },
+    active: () => {
+      if (fonts) fonts = [...fonts, text];
+      else fonts = [text];
+      generateOptions(fonts);
+      localStorage.setItem('fonts', JSON.stringify(fonts));
+    },
+  });
+
+  document.querySelector('.font-add').value = '';
+};
 
 const handleTheme = () => {
   const value = document.querySelector('.theme-selection').value;
@@ -56,29 +97,29 @@ const handleTheme = () => {
 const handleFont = () => {
   const value = document.querySelector('.font-selection').value;
 
-  let families;
-  let family;
+  const families = [`${value}:300,400,700`];
+  const family = value;
 
-  switch (value) {
-    case 'nunito':
-      families = ['Nunito:300,400,700'];
-      family = "'Nunito', sans-serif";
-      break;
-    case 'roboto':
-      families = ['Roboto:300,400,700'];
-      family = "'Roboto', sans-serif";
-      break;
-    case 'chivomono':
-      families = ['Chivo Mono:300,400,700'];
-      family = "'Chivo Mono', monospace";
-      break;
-    case 'indieflower ':
-      families = ['Indie Flower:300,400,700'];
-      family = "'Indie Flower', cursive";
-      break;
-    default:
-      break;
-  }
+  // switch (value) {
+  //   case 'nunito':
+  //     families = ['Nunito:300,400,700'];
+  //     family = "'Nunito', sans-serif";
+  //     break;
+  //   case 'roboto':
+  //     families = ['Roboto:300,400,700'];
+  //     family = "'Roboto', sans-serif";
+  //     break;
+  //   case 'chivomono':
+  //     families = ['Chivo Mono:300,400,700'];
+  //     family = "'Chivo Mono', monospace";
+  //     break;
+  //   case 'indieflower ':
+  //     families = ['Indie Flower:300,400,700'];
+  //     family = "'Indie Flower', cursive";
+  //     break;
+  //   default:
+  //     break;
+  // }
 
   WebFont.load({
     google: {
@@ -93,8 +134,7 @@ const handleFont = () => {
   localStorage.setItem(
     'font',
     JSON.stringify({
-      value,
-      family,
+      font: value,
       families,
     })
   );

@@ -49,19 +49,6 @@
       <section class="settings">
         <div class="settings-container">
           <div class="settings-option">
-            <label for="font-selection">Font</label>
-            <select
-              name="font-selection"
-              onchange="handleFont()"
-              class="font-selection"
-            >
-              <option value="nunito">Nunito</option>
-              <option value="roboto">Roboto</option>
-              <option value="chivomono">Chivo Mono</option>
-              <option value="indieflower ">Indie Flower</option>
-            </select>
-          </div>
-          <div class="settings-option">
             <label for="theme-selection">Theme</label>
             <select
               name="theme-selection"
@@ -72,6 +59,26 @@
               <option value="dark">Dark</option>
               <option value="green">Blue</option>
             </select>
+          </div>
+          <div class="settings-option">
+            <label for="font-selection">Font</label>
+            <select
+              name="font-selection"
+              onchange="handleFont()"
+              class="font-selection"
+            >
+            
+            </select>
+          </div>
+          <div class="settings-option">
+            <label for="font-add">Add font</label>
+            <div class="font-add-container">
+              <input
+                name="font-add"
+                class="font-add"
+              ></input>
+              <button class="font-add__button" onclick="handleAdd()">add</button>
+            </div>
           </div>
         </div>
       </section>

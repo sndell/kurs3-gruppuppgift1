@@ -13,7 +13,7 @@ if (font) {
     },
     active: () => {
       const r = document.querySelector(':root');
-      r.style.setProperty('--font-family', font.family);
+      r.style.setProperty('--font-family', font.font);
     },
   });
 }

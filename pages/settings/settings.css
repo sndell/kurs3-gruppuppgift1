@@ -6,6 +6,7 @@ body {
 main {
   height: 100vh;
   padding: 16px 0;
+  padding-right: 16px;
 }
 
 .settings {
@@ -29,18 +30,46 @@ main {
 }
 
 .settings-option {
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: max-content auto;
   gap: 16px;
+  align-items: center;
+  /* display: flex; */
+  /* align-items: center; */
+  /* gap: 16px; */
 }
 
 .font-selection,
-.theme-selection {
+.theme-selection,
+.font-add {
   border-radius: 8px;
   padding: 8px;
   outline: none;
   border-radius: 8px;
   background-color: var(--secondary-color);
-  border: 0.5px solid var(--accent-color);
+  /* border: 0.5px solid var(--accent-color); */
+  border: none;
   /* box-shadow: 8px 8px 16px #d9d9d9, -8px -8px 16px #ffffff; */
+}
+
+.font-add-container {
+  max-width: 240px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  background-color: var(--secondary-color);
+}
+
+.font-add {
+  width: 100%;
+}
+
+.font-add__button {
+  cursor: pointer;
+  border-radius: 8px;
+  background-color: var(--primary-color);
+  height: 100%;
+  padding: 8px;
+  margin: 4px;
+  border: none;
 }
