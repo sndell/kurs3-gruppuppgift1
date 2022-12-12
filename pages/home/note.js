@@ -24,6 +24,7 @@ const newNote = () => {
     modified: id,
     tags: [],
     favorite: false,
+    font: 'Nunito',
   };
 
   // adds new note to localstorage
@@ -89,6 +90,16 @@ const selectNote = (id = undefined) => {
     const viewer = new toastui.Editor({
       el: document.querySelector('.preview-viewer'),
       initialValue: note.content,
+    });
+
+    WebFont.load({
+      google: {
+        families: [`${note.font}:300,400,700`],
+      },
+      active: () => {
+        const r = document.querySelector(':root');
+        r.style.setProperty('--note-font-family', note.font);
+      },
     });
   } else {
     currentNote = '';

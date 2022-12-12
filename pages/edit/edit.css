@@ -11,7 +11,7 @@ main {
     inset -24px -24px 48px var(--primary-color);
 }
 
-.tag-modal {
+.modal {
   z-index: 100;
   position: absolute;
   width: 100vw;
@@ -24,35 +24,20 @@ main {
   justify-content: center;
 }
 
-.tag-modal-container {
+.modal-container {
   border-radius: 8px;
   padding: 16px;
   background: var(--primary-color);
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 16px;
   margin: 0 16px;
 }
 
-.tag-modal__input {
-  width: 100%;
-  padding: 0 12px;
-  font-size: 16px;
-  height: 32px;
-  border: none;
-  border-radius: 8px;
-  outline: none;
-  background: var(--primary-color);
-  box-shadow: inset 8px 8px 16px var(--primary-gradient-color),
-    inset -8px -8px 16px var(--primary-color);
-}
-
-.tag-modal__confirm,
-.tag-modal__cancel {
+.close {
   cursor: pointer;
-}
-
-.tag-modal__confirm {
+  margin: 0 auto;
+  width: fit-content;
   border-radius: 8px;
   padding: 8px;
   border: none;
@@ -62,14 +47,48 @@ main {
     -8px -8px 16px var(--primary-color);
 }
 
-.tag-modal__cancel {
+.modal-option {
+  display: grid;
+  grid-template-columns: max-content auto;
+  gap: 16px;
+  align-items: center;
+  /* display: flex; */
+  /* align-items: center; */
+  /* gap: 16px; */
+}
+
+.font-selection,
+.font-add {
   border-radius: 8px;
   padding: 8px;
-  border: none;
   outline: none;
+  border-radius: 8px;
+  background-color: var(--secondary-color);
+  /* border: 0.5px solid var(--accent-color); */
+  border: none;
+  /* box-shadow: 8px 8px 16px #d9d9d9, -8px -8px 16px #ffffff; */
+}
+
+.font-add-container {
+  max-width: 240px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  background-color: var(--secondary-color);
+}
+
+.font-add {
+  width: 100%;
+}
+
+.font-add__button {
+  cursor: pointer;
+  border-radius: 8px;
   background-color: var(--primary-color);
-  box-shadow: 8px 8px 16px var(--primary-gradient-color),
-    -8px -8px 16px var(--primary-color);
+  height: 100%;
+  padding: 8px;
+  margin: 4px;
+  border: none;
 }
 
 .header {
@@ -131,6 +150,7 @@ main {
 }
 
 .editor {
+  font-family: var(--note-font-family) !important;
   margin: 0 16px 16px 16px;
   border-radius: 8px;
   background: var(--primary-color);

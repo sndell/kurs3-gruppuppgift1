@@ -830,6 +830,7 @@ table.ProseMirror-selectednode {
 .toastui-editor-contents {
   font-family: Open Sans, Helvetica Neue, Helvetica, Arial, ë‚˜ëˆ”ë°”ë¥¸ê³ ë”•,
     Nanum Barun Gothic, ë§‘ì€ê³ ë”•, Malgun Gothic, sans-serif;
+  font-family: var(--note-font-family);
   font-size: 13px;
   margin: 0;
   padding: 0;

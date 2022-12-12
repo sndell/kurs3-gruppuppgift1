@@ -93,6 +93,7 @@ h6 {
   --accent-color: #000000;
   --primary-text-color: #000000;
   --secondary-text-color: #ffffff;
+  --note-font-family: 'Nunito';
 }
 
 body {
