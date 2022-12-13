@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../../styles/sidebar.css" />
+    <link rel="stylesheet" href="../../styles/global.css" />
+    <link rel="stylesheet" href="settings.css" />
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"
+      defer
+    ></script>
+    <script src="../../util/theme-loader.js" defer></script>
+    <script src="./settings.js" defer></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <aside class="sidebar">
+      <i class="fa-brands fa-quinscape sidebar-branding"></i>
+      <nav>
+        <ul class="sidebar-list">
+          <li>
+            <a href="../home/" class="sidebar-list-item">
+              <i class="fa-solid fa-note-sticky"></i>
+            </a>
+          </li>
+          <li>
+            <a href="../stats/" class="sidebar-list-item">
+              <i class="fa-solid fa-chart-simple"></i>
+            </a>
+          </li>
+          <li>
+            <a href="" class="sidebar-list-item sidebar-list-item__active">
+              <i class="fa-solid fa-gear"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+    <main>
+      <section class="settings">
+        <div class="settings-container">
+          <div class="settings-option">
+            <label for="theme-selection">Theme</label>
+            <select
+              name="theme-selection"
+              onchange="handleTheme()"
+              class="theme-selection"
+            >
+              <option value="light">Light</option>
+              <option value="dark">Dark</option>
+              <option value="green">Blue</option>
+            </select>
+          </div>
+          <div class="settings-option">
+            <label for="font-selection">Font</label>
+            <select
+              name="font-selection"
+              onchange="handleFont()"
+              class="font-selection"
+            >
+            
+            </select>
+          </div>
+          <div class="settings-option">
+            <label for="font-add">Add font</label>
+            <div class="font-add-container">
+              <input
+                name="font-add"
+                class="font-add"
+              ></input>
+              <button class="font-add__button" onclick="handleAdd()">add</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
