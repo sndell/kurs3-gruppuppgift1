@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="edit.css" />
+    <link rel="stylesheet" href="../../styles/global.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="editor.css" />
+    <!-- <link
+      rel="stylesheet"
+      href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css"
+    /> -->
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"
+      defer
+    ></script>
+    <script src="../../util/theme-loader.js" defer></script>
+    <script
+      src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"
+      defer
+    ></script>
+    <script src="edit.js" defer></script>
+  </head>
+  <body>
+    <div class="modal hidden">
+      <div class="modal-container">
+        <div class="modal-option">
+          <label for="font-selection">Font</label>
+          <select
+            name="font-selection"
+            onchange="handleFont()"
+            class="font-selection"
+          >
+          </select>
+        </div>
+        <div class="modal-option">
+          <label for="font-add">Add font</label>
+          <div class="font-add-container">
+            <input
+              name="font-add"
+              class="font-add"
+            ></input>
+            <button class="font-add__button" onclick="handleAdd()">add</button>
+          </div>
+        </div>
+        <button class="close" onclick="handleClose()">Close</button>
+      </div>
+    </div>
+    <main>
+      <div class="header">
+        <h2 class="header__title" contenteditable spellcheck="false">
+          New note
+        </h2>
+        <!-- <div class="header-actions"></div> -->
+        <button class="header__close" onclick="closeEditor()">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="editor"></div>
+    </main>
+  </body>
+</html>
