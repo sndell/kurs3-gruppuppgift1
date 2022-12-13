@@ -5,3 +5,6 @@ Deltagare:
 * Andy
 * Benjamin 
 * Gustav
+
+Inte deltagande:
+* Viktor
