@@ -1,7 +1,7 @@
 # Våran [Trello](https://trello.com/b/EbP37Rnn/quire)
 
 Deltagare: 
-* Alexander, 
+* Alexander
 * Andy
 * Benjamin 
 * Gustav
