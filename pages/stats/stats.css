@@ -1,0 +1,28 @@
+body {
+  display: flex;
+  background-color: var(--primary-color);
+}
+
+main {
+  height: 100vh;
+  padding: 16px 0;
+  padding-right: 16px;
+}
+
+.container {
+  height: 100%;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: var(--primary-color);
+  box-shadow: inset 24px 24px 48px var(--primary-gradient-color),
+    inset -24px -24px 48px var(--primary-color);
+}
+
+.stat {
+  color: var(--primary-text-color);
+  padding: 16px;
+  border-radius: 8px;
+  background-color: var(--primary-color);
+  box-shadow: 24px 24px 48px var(--primary-gradient-color),
+    -24px -24px 48px var(--primary-color);
+}

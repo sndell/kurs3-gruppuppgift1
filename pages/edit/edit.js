@@ -6,6 +6,10 @@ const note = notes.find((note) => note.id === id.toString());
 const title = document.querySelector('.header__title');
 title.innerHTML = note.title;
 
+const updateLocalStorage = () => {
+  localStorage.setItem('notes', JSON.stringify(notes));
+};
+
 addEventListener('load', () => {
   let list;
   const test = JSON.parse(localStorage.getItem('fonts'));
@@ -18,6 +22,27 @@ addEventListener('load', () => {
   document.querySelector('.font-selection').value = note.font;
   loadNoteFont(note.font);
 });
+
+const handleAdd = () => {
+  const text = document.querySelector('.font-add').value;
+
+  let fonts = JSON.parse(localStorage.getItem('fonts'));
+  console.log(fonts);
+
+  WebFont.load({
+    google: {
+      families: [`${text}:300,400,700`],
+    },
+    active: () => {
+      if (fonts) fonts = [...fonts, text];
+      else fonts = [text];
+      generateOptions(fonts);
+      localStorage.setItem('fonts', JSON.stringify(fonts));
+    },
+  });
+
+  document.querySelector('.font-add').value = '';
+};
 
 const generateOptions = (list) => {
   const fontSelect = document.querySelector('.font-selection');
@@ -133,8 +158,4 @@ const editor = new toastui.Editor({
 
 const closeEditor = () => {
   window.location.href = `../home/?selected=${id}`;
-};
-
-const updateLocalStorage = () => {
-  localStorage.setItem('notes', JSON.stringify(notes));
 };

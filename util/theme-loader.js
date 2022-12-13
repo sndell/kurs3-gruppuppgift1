@@ -12,7 +12,6 @@ if (font) {
       families,
     },
     active: () => {
-      const r = document.querySelector(':root');
       r.style.setProperty('--font-family', font.font);
     },
   });
