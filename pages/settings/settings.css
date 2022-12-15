@@ -42,6 +42,7 @@ main {
 .font-selection,
 .theme-selection,
 .font-add {
+  text-transform: capitalize;
   border-radius: 8px;
   padding: 8px;
   outline: none;

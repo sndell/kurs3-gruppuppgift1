@@ -1,5 +1,3 @@
-if (theme) document.querySelector('.theme-selection').value = theme.value;
-
 addEventListener('load', () => {
   let list;
   const test = JSON.parse(localStorage.getItem('fonts'));
@@ -8,17 +6,53 @@ addEventListener('load', () => {
     localStorage.setItem('fonts', JSON.stringify(list));
   } else list = test;
 
-  generateOptions(list);
-  if (font) document.querySelector('.font-selection').value = font.font;
+  getThemes();
+  getFonts(list);
 });
 
-const generateOptions = (list) => {
+const getThemes = async () => {
+  const themeSelect = document.querySelector('.theme-selection');
+  const themes = await fetch('../../styles/themes.json').then((res) =>
+    res.json()
+  );
+
+  themeSelect.innerHTML = '';
+
+  themes.forEach((theme) => {
+    let option = new Option(theme.name, theme.name);
+    themeSelect.add(option, undefined);
+  });
+
+  if (theme) themeSelect.value = theme.name;
+};
+
+const handleTheme = async () => {
+  const r = document.querySelector(':root');
+  const themes = await fetch('../../styles/themes.json').then((res) =>
+    res.json()
+  );
+
+  const value = document.querySelector('.theme-selection').value;
+  const theme = themes.find((theme) => theme.name === value);
+
+  r.style.setProperty('--primary-color', theme.primary);
+  r.style.setProperty('--primary-gradient-color', theme.primaryGradient);
+  r.style.setProperty('--secondary-color', theme.secondary);
+  r.style.setProperty('--accent-color', theme.accent);
+  r.style.setProperty('--primary-text-color', theme.primaryText);
+  r.style.setProperty('--secondary-text-color', theme.secondaryText);
+
+  localStorage.setItem('theme', JSON.stringify(theme));
+};
+
+const getFonts = (list) => {
   const fontSelect = document.querySelector('.font-selection');
   fontSelect.innerHTML = '';
   list.forEach((item) => {
     let option = new Option(item, item);
     fontSelect.add(option, undefined);
   });
+  if (font) fontSelect.value = font.font;
 };
 
 const handleAdd = () => {
@@ -34,64 +68,12 @@ const handleAdd = () => {
     active: () => {
       if (fonts) fonts = [...fonts, text];
       else fonts = [text];
-      generateOptions(fonts);
+      getFonts(fonts);
       localStorage.setItem('fonts', JSON.stringify(fonts));
     },
   });
 
   document.querySelector('.font-add').value = '';
-};
-
-const handleTheme = () => {
-  const value = document.querySelector('.theme-selection').value;
-  let theme;
-
-  switch (value) {
-    case 'light':
-      theme = {
-        value: 'light',
-        primary: '#ffffff',
-        primaryGradient: '#d9d9d9',
-        secondary: '#efefef',
-        accent: '#000000',
-        primaryText: '#000000',
-        secondaryText: '#ffffff',
-      };
-      break;
-    case 'dark':
-      theme = {
-        value: 'dark',
-        primary: '#292933',
-        primaryGradient: '#1b1b22',
-        secondary: '#21212a',
-        accent: '#ffffff',
-        primaryText: '#9f9fab',
-        secondaryText: '#000000',
-      };
-      break;
-    case 'green':
-      theme = {
-        value: 'green',
-        primary: '#39ffd7',
-        primaryGradient: '#18c2a0',
-        secondary: '#25e1bb',
-        accent: '#18c2a0',
-        primaryText: '#354540',
-        secondaryText: '#fcfcfc',
-      };
-      break;
-    default:
-      break;
-  }
-
-  const r = document.querySelector(':root');
-  r.style.setProperty('--primary-color', theme.primary);
-  r.style.setProperty('--primary-gradient-color', theme.primaryGradient);
-  r.style.setProperty('--secondary-color', theme.secondary);
-  r.style.setProperty('--accent-color', theme.accent);
-  r.style.setProperty('--primary-text-color', theme.primaryText);
-  r.style.setProperty('--secondary-text-color', theme.secondaryText);
-  localStorage.setItem('theme', JSON.stringify(theme));
 };
 
 const handleFont = () => {
