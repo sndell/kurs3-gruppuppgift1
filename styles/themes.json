@@ -1,0 +1,38 @@
+[
+  {
+    "name": "light",
+    "primary": "#ffffff",
+    "primaryGradient": "#d9d9d9",
+    "secondary": "#efefef",
+    "accent": "#000000",
+    "primaryText": "#000000",
+    "secondaryText": "#ffffff"
+  },
+  {
+    "name": "dark",
+    "primary": "#292933",
+    "primaryGradient": "#1b1b22",
+    "secondary": "#21212a",
+    "accent": "#ffffff",
+    "primaryText": "#9f9fab",
+    "secondaryText": "#000000"
+  },
+  {
+    "name": "green",
+    "primary": "#39ffd7",
+    "primaryGradient": "#18c2a0",
+    "secondary": "#25e1bb",
+    "accent": "#18c2a0",
+    "primaryText": "#354540",
+    "secondaryText": "#fcfcfc"
+  },
+  {
+    "name": "asd",
+    "primary": "#39ffd7",
+    "primaryGradient": "#18c2a0",
+    "secondary": "#25e1bb",
+    "accent": "#18c2a0",
+    "primaryText": "#354540",
+    "secondaryText": "#fcfcfc"
+  }
+]
